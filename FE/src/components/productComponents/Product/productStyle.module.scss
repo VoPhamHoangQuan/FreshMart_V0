@@ -1,0 +1,91 @@
+.product {
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 0.6rem;
+    margin-bottom: 1rem;
+    height: 40rem;
+
+    &:hover {
+        box-shadow: 0 0 1rem var(--shadow-color);
+        margin-top: -0.2rem;
+    }
+
+    .productLink {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .productImg {
+            width: 18rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 1rem var(--shadow-color);
+        }
+
+        .productName {
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.8rem;
+            color: var(--font-color);
+            margin-bottom: 1.6rem;
+            padding: 0 1rem;
+            align-self: flex-start;
+            height: 4rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .productPriceContainer {
+            display: flex;
+            align-self: flex-start;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .productPrimaryPrice {
+            position: relative;
+            font-size: 2rem;
+            color: var(--active-color);
+            font-weight: 500;
+            margin-right: 2rem;
+            span {
+                position: absolute;
+                top: -0.4rem;
+                font-size: 1.4rem;
+            }
+        }
+
+        .productOldPrice {
+            position: relative;
+            font-size: 1.4rem;
+            color: var(--font-color);
+            opacity: 0.8;
+            text-decoration: line-through;
+            span {
+                position: absolute;
+                top: -0.4rem;
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .addToCartBtn {
+        width: 90%;
+        .outOfStock__active:disabled {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border: 1px solid var(--active-color);
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 0.6rem;
+            background-color: var(--active-color);
+            color: #fff;
+        }
+    }
+}

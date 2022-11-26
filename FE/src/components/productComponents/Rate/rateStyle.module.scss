@@ -1,0 +1,107 @@
+.rate_container {
+    background-color: #fff;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.rate_title {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 0.8rem;
+    color: var(--font-color);
+    border-bottom: 2px solid var(--border-color);
+    margin: 1rem 0 2rem;
+}
+
+.rate_form {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid var(--border-color);
+    form {
+        display: flex;
+        flex-direction: column;
+        label {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            opacity: 0.8;
+            color: var(--font-color);
+        }
+        input {
+            margin-bottom: 4rem;
+            color: var(--font-color);
+            font-size: 1.8rem;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.4rem;
+            background-color: var(--background-input-color);
+        }
+
+        textarea {
+            margin-bottom: 4rem;
+            color: var(--font-color);
+            font-size: 1.8rem;
+            padding: 1rem;
+            background-color: var(--background-input-color);
+            border: none;
+            border-radius: 0.4rem;
+            resize: none;
+        }
+
+        .rateControl_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            .rate_score {
+                label {
+                    margin-right: 1rem;
+                }
+                i {
+                    margin-right: 0.4rem;
+                }
+            }
+
+            .rate_submitBtn {
+                width: 18rem;
+                input {
+                    margin: 0;
+                    background-color: var(--primary-color);
+                    color: #fff;
+                    &:hover {
+                        background-color: var(--active-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.rate_guestComment_container {
+    margin-top: 2rem;
+}
+
+.rate_guestComment {
+    margin-top: 2rem;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    box-shadow: 0 0 1rem var(--shadow-color);
+}
+
+.guestComment_title {
+    display: flex;
+    align-items: center;
+    span {
+        font-size: 1.8rem;
+        color: var(--font-color);
+        margin-right: 2rem;
+        font-weight: 500;
+    }
+}
+
+.guestComment_content {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    color: var(--font-color);
+    line-height: 2rem;
+}

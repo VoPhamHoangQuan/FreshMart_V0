@@ -1,0 +1,103 @@
+.container {
+    background-color: #fff;
+    padding: 2rem 10rem;
+    margin: 2rem 0;
+}
+.auth_notify {
+    display: none;
+
+    &__active {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0 2rem 0;
+        font-size: 1.4rem;
+        img {
+            width: 1.8rem;
+            margin-right: 1rem;
+        }
+    }
+    &__error {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0 2rem 0;
+        color: var(--active-color);
+        font-size: 1.4rem;
+        img {
+            width: 1.8rem;
+            margin-right: 1rem;
+        }
+    }
+}
+
+.title_container {
+    text-align: center;
+    margin: 2rem 0 4rem 0;
+    span {
+        font-size: 2rem;
+        color: var(--font-color);
+        font-weight: 400;
+    }
+}
+
+.input_container {
+    padding: 0rem 2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    min-height: 6rem;
+    i {
+        margin-right: 2rem;
+    }
+    input {
+        border: none;
+        font-size: 1.6rem;
+        width: 100%;
+        padding: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+    .input_radio {
+        display: flex;
+        width: 6rem;
+        margin: 0 1rem;
+    }
+    .input_text {
+        display: flex;
+        flex-direction: column;
+        min-height: 4rem;
+        justify-content: center;
+        width: 100%;
+
+        input {
+            margin-top: 0.6rem;
+        }
+    }
+}
+.submit_button {
+    margin: 0rem 0 4rem 0;
+    &__disable {
+        opacity: 0.8;
+        &:hover {
+            background-color: var(--primary-color) !important;
+            border: 1px solid var(--primary-color) !important;
+        }
+    }
+}
+
+.return_link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.4rem;
+    display: block;
+    width: fit-content;
+    margin: 0rem auto;
+    &:hover {
+        color: var(--active-color);
+    }
+    i {
+        margin-right: 1rem;
+    }
+}

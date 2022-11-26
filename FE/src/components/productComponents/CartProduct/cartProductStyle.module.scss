@@ -1,0 +1,109 @@
+.container {
+    padding: 0rem 0rem 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.product_container {
+    width: var(--cart-product-width);
+    display: flex;
+}
+
+.image_container {
+    margin-right: 1rem;
+    img {
+        width: 8rem;
+    }
+}
+.inFo_container {
+    display: flex;
+    flex-direction: column;
+    // padding: 0.4rem 0;
+    width: 100%;
+    line-height: 2rem;
+}
+.product_name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    font-size: 1.8rem;
+    color: var(--font-color);
+    margin: 0.4rem 0 0.2rem 0;
+}
+.product_price {
+    color: var(--font-color);
+    font-size: 1.6rem;
+    opacity: 0.9;
+    margin: 0.4rem 0rem;
+}
+.remove_btn {
+    width: fit-content;
+    button {
+        font-size: 1.4rem;
+        background-color: #fff;
+        color: var(--active-color);
+        border: none;
+        padding: 0.4rem 0;
+        opacity: 0.8;
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
+}
+
+.quantity_container {
+    width: var(--cart-quantity-width);
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0;
+}
+
+.quantity_selector {
+    background-color: #fff;
+    // border: 1px solid var(--border-color);
+    border: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--font-color);
+    border-radius: 0.4rem;
+    width: 4rem;
+    &:hover {
+        background-color: var(--background-color);
+        cursor: pointer;
+    }
+}
+.quantity_input {
+    border: none;
+    width: 6rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+    text-align: center;
+    margin: 0 0.4rem;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.price_container {
+    width: var(--cart-price-width);
+    padding-left: 4%;
+    display: flex;
+    align-items: center;
+}
+
+.total_product_price {
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--font-color);
+    span {
+        position: absolute;
+        top: -0.4rem;
+        font-size: 1.6rem;
+    }
+}

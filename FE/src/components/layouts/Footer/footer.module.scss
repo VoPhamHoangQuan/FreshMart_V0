@@ -1,0 +1,121 @@
+.Footer_container {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--background-footer-color);
+    flex-direction: column;
+    align-items: center;
+}
+
+.Footer_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+
+    &:first-child,
+    :last-child {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.Footer_col3 {
+    width: 30%;
+}
+
+.Footer_title {
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.Footer_descriptList {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    li {
+        position: relative;
+    }
+
+    .Footer_descript {
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: #fff;
+        padding-left: 2rem;
+        line-height: 2.6rem;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 5rem;
+            background-color: var(--active-color);
+            position: absolute;
+            left: 0rem;
+            top: 1rem;
+        }
+    }
+}
+
+.Footer_social,
+.Footer_payment {
+    display: flex;
+    width: 20rem;
+    list-style: none;
+    padding: 0;
+}
+
+.Footer_socialLink {
+    background-color: var(--active-color);
+    color: #fff;
+    font-size: 2rem;
+    padding: 1.4rem 1.6rem;
+    border-radius: 5rem;
+    margin-right: 2rem;
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: var(--front-color);
+        animation: socialHover ease-in 0.2s;
+        cursor: pointer;
+    }
+
+    @keyframes socialHover {
+        from {
+            background-color: var(--active-color);
+            color: #fff;
+        }
+        to {
+            background-color: var(--primary-color);
+            color: var(--front-color);
+        }
+    }
+}
+
+.Footer_paymentLogo {
+    width: 6rem;
+}
+
+.Footer_sign {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.Footer_signTitle {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 1.4rem 0;
+}
+
+.Footer_signLink {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+        color: var(--active-color);
+    }
+}
