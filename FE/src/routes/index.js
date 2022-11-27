@@ -11,7 +11,7 @@ import { HeaderOnly } from "../components/layouts";
 
 export const PublicRoutes = [
     { path: "/", component: HomeUser },
-    { path: "/product/:id", component: ProductInfo },
+    { path: "/product/:id", component: ProductInfo, layout: HeaderOnly },
     { path: "/cart", component: CartInfo, layout: HeaderOnly },
     { path: "/cart/:id", component: CartInfo, layout: HeaderOnly },
     { path: "/signin", component: Signin, layout: HeaderOnly },

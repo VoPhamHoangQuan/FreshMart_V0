@@ -23,8 +23,8 @@ function ProductInfo() {
         fetchProductDetailData();
     }, [dispatch, params.id]);
     return (
-        <>
-            <div className="col_lg_8_10">
+        <div className="row">
+            <div className="col_lg_8_12">
                 {loading ? (
                     <Loading></Loading>
                 ) : error !== "" ? (
@@ -45,7 +45,7 @@ function ProductInfo() {
                     </>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 

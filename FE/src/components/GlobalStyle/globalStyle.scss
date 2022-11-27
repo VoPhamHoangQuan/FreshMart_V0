@@ -106,7 +106,7 @@ body {
 .primary_btn_style_1 {
     background-color: var(--primary-color);
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
     border: 1px solid var(--primary-color);
     width: 100%;
@@ -132,7 +132,7 @@ body {
 .primary_btn_style_1__inActive {
     background-color: var(--primary-color);
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
     border: 1px solid var(--primary-color);
     width: 100%;
@@ -144,7 +144,7 @@ body {
 .primary_btn_style_2 {
     background-color: #fff;
     color: var(--primary-color);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
     border: 1px solid var(--primary-color);
     width: 100%;
@@ -242,6 +242,10 @@ body {
     width: 16.6667%;
 }
 
+.col_lg_4_12 {
+    width: 33.3333%;
+}
+
 .col_lg_8_12 {
     width: 66.6667%;
 }
@@ -260,6 +264,9 @@ body {
 
 .col_lg_2_10 {
     width: 20%;
+}
+.col_lg_4_10 {
+    width: 40%;
 }
 
 .col_lg_8_10 {

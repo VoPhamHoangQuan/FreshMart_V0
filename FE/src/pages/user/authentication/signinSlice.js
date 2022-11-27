@@ -76,6 +76,7 @@ const signinSlice = createSlice({
             state.userInfo = {};
             localStorage.removeItem("cartItems");
             localStorage.removeItem("userInfo");
+            localStorage.removeItem("shippingInfo");
         },
     },
     extraReducers: {

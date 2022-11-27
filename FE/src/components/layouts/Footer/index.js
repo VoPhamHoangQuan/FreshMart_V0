@@ -26,9 +26,8 @@ function Footer() {
 
                         <li>
                             <p className={style.Footer_descript}>
-                                Gồm các chức năng như xem và mua hàng hóa có ở
-                                trang, ngoài ra đối với hệ thống quản lí có CRUD
-                                hàng hóa, tài khoản.
+                                Địa chỉ: 30 Hòa Bình, P.Hòa Thạnh, Q.Tân Phú,
+                                TPHCM
                             </p>
                         </li>
                     </ul>

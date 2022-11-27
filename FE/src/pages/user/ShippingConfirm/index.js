@@ -6,7 +6,7 @@ export default function ShippingConfirm() {
     return (
         <>
             <div className="row">
-                <div className="col_lg_6_12">
+                <div className="col_lg_8_12">
                     <BreadCrumb
                         directionMap={[
                             {

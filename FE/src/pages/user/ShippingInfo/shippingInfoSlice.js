@@ -145,6 +145,10 @@ const shippingInfoSlice = createSlice({
     reducers: {
         setShippingInfomation: (state, action) => {
             state.shippingInfomation = action.payload;
+            localStorage.setItem(
+                "shippingInfo",
+                JSON.stringify(action.payload)
+            );
         },
     },
     extraReducers: {

@@ -54,12 +54,12 @@ function Header() {
                         />
                     </Link>
 
-                    <div className={style.Header_addressContainer}>
+                    {/* <div className={style.Header_addressContainer}>
                         <i className="fas fa-map-marker-alt"></i>
                         <p className={style.Header_address}>
                             Giao tại: Q. Tân Phú, P. Hòa Thạnh, TPHCM
                         </p>
-                    </div>
+                    </div> */}
 
                     <div className={style.Header_searchBar}>
                         <input
