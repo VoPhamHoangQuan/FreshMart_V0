@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
+import orderRouter from "./routers/orderRouter.js";
 
 dotenv.config();
 const app = express();
@@ -31,3 +32,4 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/products", productRouter);
 app.use("/users", userRouter);
+app.use("/orders", orderRouter);

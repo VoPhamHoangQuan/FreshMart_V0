@@ -39,3 +39,17 @@ export const getProductDetail = async (req, res) => {
         res.status(500).json({ error: err });
     }
 };
+
+export const adjustProductInStock = async (req, res) => {
+    try {
+        const filter = { _id: req.body.productId };
+        const update = { stock: req.body.updatedStock };
+        const productBefore = await ProductsModel.findOneAndUpdate(
+            filter,
+            update
+        );
+        res.status(200).send({ message: "update product stock success" });
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
