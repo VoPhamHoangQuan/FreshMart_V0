@@ -7,6 +7,7 @@ import SigninInfo from "../pages/user/authentication/SigninInfo";
 import PassEntering from "../pages/user/authentication/SigninPass";
 import ShippingInfo from "../pages/user/ShippingInfo";
 import ShippingConfirm from "../pages/user/ShippingConfirm";
+import OrderInfo from "../pages/user/OrderInfo";
 import { HeaderOnly } from "../components/layouts";
 
 export const PublicRoutes = [
@@ -42,6 +43,11 @@ export const PrivateRoutes = [
     {
         path: "/shippingConfirm",
         component: ShippingConfirm,
+        layout: HeaderOnly,
+    },
+    {
+        path: "/orderInfo",
+        component: OrderInfo,
         layout: HeaderOnly,
     },
 ];
