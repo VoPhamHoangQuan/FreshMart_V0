@@ -1,7 +1,6 @@
 import React from "react";
 import BreadCrumb from "~/components/BreadCrumb";
 import ShippingDetailsConfirm from "~/components/shippingComponents/ShippingDetailsConfirm";
-
 export default function ShippingConfirm() {
     return (
         <>

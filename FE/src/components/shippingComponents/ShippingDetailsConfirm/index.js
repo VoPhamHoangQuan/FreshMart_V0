@@ -8,22 +8,58 @@ import {
     formatPhoneNumber,
     reverseFormatPhoneNumber,
 } from "~/vendor/js";
+import {
+    fetchCreateOrder,
+    fetchUpdateProductStock,
+} from "~/pages/user/ShippingConfirm/shippingConfirmSlice";
+
 export default function ShippingDetailsConfirm() {
     const history = useNavigate();
     const dispatch = useDispatch();
-    // const { shippingInfomation } = useSelector((state) => state.shippingInfo);
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     const shippingInfo = JSON.parse(localStorage.getItem("shippingInfo"));
     const cartItems = JSON.parse(localStorage.getItem("cartItems"));
-    function forceAuthentication(shippingInfo, userInfo) {
+    function forceAuthentication(shippingInfo, userInfo, cartItems) {
         if (!userInfo) {
             history("/signin");
-        } else if (!shippingInfo) {
+        } else if (!shippingInfo || !cartItems) {
             history("/shippingInfo");
         }
     }
+
+    function handleSubmitClick() {
+        const orderItems = cartItems.map((el) => {
+            return { productId: el.productId, qty: el.qty };
+        });
+        const shippingInfomation = {
+            address: shippingInfo.shippingAddress,
+            shippingPhone:
+                shippingInfo.shippingPhone.length < 4
+                    ? ""
+                    : shippingInfo.shippingPhone,
+            shippingPrice: shippingInfo.shippingPrice,
+            itemsPrice: shippingInfo.productPrice,
+        };
+        const updateItems = cartItems.map((el) => {
+            return { productId: el.productId, qty: el.qty, stock: el.stock };
+        });
+        dispatch(
+            fetchUpdateProductStock({
+                updateItems: updateItems,
+            })
+        );
+        dispatch(
+            fetchCreateOrder({
+                token: userInfo.token,
+                orderItems,
+                shippingInfo: shippingInfomation,
+                paymentMethod: shippingInfo.paymentMethod,
+            })
+        );
+    }
+
     useEffect(() => {
-        forceAuthentication(shippingInfo, userInfo);
+        forceAuthentication(shippingInfo, userInfo, cartItems);
     });
     return (
         <div className="row mt-1">
@@ -98,20 +134,41 @@ export default function ShippingDetailsConfirm() {
                             <span>Giỏ hàng</span>
                         </div>
                         <div className={style.cart_container}>
-                            {cartItems.map((el, id) => (
-                                <div className={style.product_container}>
-                                    <div className={style.product_detail}>
-                                        <img
-                                            className={style.image}
-                                            src={el.image}
-                                            alt="product"
-                                        />
-                                        <div className={style.info}>
-                                            <span>{el.name}</span>
+                            {cartItems ? (
+                                cartItems.map((el, id) => (
+                                    <div className={style.product_container}>
+                                        <div className={style.product_detail}>
+                                            <img
+                                                className={style.image}
+                                                src={el.image}
+                                                alt="product"
+                                            />
+                                            <div className={style.info}>
+                                                <span>{el.name}</span>
+                                                <span>
+                                                    Giá:{" "}
+                                                    {numberWithCommas(
+                                                        el.primaryPrice
+                                                    )}
+                                                    <span
+                                                        style={{
+                                                            position:
+                                                                "relative",
+                                                            top: "-0.4rem",
+                                                            fontSize: "1.6rem",
+                                                        }}
+                                                    >
+                                                        đ
+                                                    </span>
+                                                </span>
+                                                <span>Số lượng: {el.qty}</span>
+                                            </div>
+                                        </div>
+                                        <div className={style.total_price}>
                                             <span>
-                                                Giá:{" "}
+                                                Tổng:{" "}
                                                 {numberWithCommas(
-                                                    el.primaryPrice
+                                                    el.primaryPrice * el.qty
                                                 )}
                                                 <span
                                                     style={{
@@ -123,28 +180,12 @@ export default function ShippingDetailsConfirm() {
                                                     đ
                                                 </span>
                                             </span>
-                                            <span>Số lượng: {el.qty}</span>
                                         </div>
                                     </div>
-                                    <div className={style.total_price}>
-                                        <span>
-                                            Tổng:{" "}
-                                            {numberWithCommas(
-                                                el.primaryPrice * el.qty
-                                            )}
-                                            <span
-                                                style={{
-                                                    position: "relative",
-                                                    top: "-0.4rem",
-                                                    fontSize: "1.6rem",
-                                                }}
-                                            >
-                                                đ
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                            ))}
+                                ))
+                            ) : (
+                                <></>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -180,7 +221,10 @@ export default function ShippingDetailsConfirm() {
                         </span>
                     </div>
                     <div className={style.submit_btn}>
-                        <button className="primary_btn_style_1">
+                        <button
+                            className="primary_btn_style_1"
+                            onClick={handleSubmitClick}
+                        >
                             Đặt hàng
                         </button>
                     </div>

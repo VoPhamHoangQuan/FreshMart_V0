@@ -40,9 +40,11 @@ export default function ShippingDetails() {
               0
           )
         : 0;
-    function forceAuthentication(userInfo) {
+    function forceAuthentication(userInfo, cartItems) {
         if (!userInfo) {
             history("/signin");
+        } else if (!cartItems) {
+            history("/cart");
         }
     }
 
@@ -125,7 +127,7 @@ export default function ShippingDetails() {
     }, []);
 
     useEffect(() => {
-        forceAuthentication(userInfo);
+        forceAuthentication(userInfo, cartItems);
     });
 
     useEffect(() => {
