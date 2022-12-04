@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { DefaultLayout } from "./components/layouts";
 import { PrivateRoutes, PublicRoutes } from "./routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PopUpNotify from "~/components/popupComponents/PopUpNotify";
 
 function App() {
     return (

@@ -1,28 +1,57 @@
 import clsx from "clsx";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { numberWithCommas, reverseFormatPhoneNumber } from "~/vendor/js";
 import style from "./orderDetailStyle.module.scss";
+import {
+    fetchOrderDetail,
+    fetchVNDRate,
+    fetchModifyIsPaidOrder,
+} from "~/pages/user/OrderInfo/orderInfoSlice";
+import shippingConfirmSlice from "~/pages/user/ShippingConfirm/shippingConfirmSlice";
 
 export default function OrderDetail() {
     const history = useNavigate();
     const dispatch = useDispatch();
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    const shippingInfo = JSON.parse(localStorage.getItem("shippingInfo"));
-    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
-    function forceAuthentication(shippingInfo, userInfo, cartItems) {
+    const { order, VNDRate } = useSelector((state) => state.orderInfo);
+    const [fetchData, setFetchData] = useState(false);
+    const [isPaid, setIsPaid] = useState(false);
+    const [paidTime, setPaidTime] = useState("");
+    const [isDelivery, SetIsDelivery] = useState(false);
+    const [usdValue, setUsdValue] = useState("0");
+
+    function forceAuthentication(userInfo) {
         if (!userInfo) {
             history("/signin");
-        } else if (!shippingInfo || !cartItems) {
-            history("/shippingInfo");
         }
     }
 
-    function handleSubmitClick() {}
+    function convertVNDToUSD(vndValue) {
+        const usdValue = (vndValue / parseInt(VNDRate)).toFixed(2);
+        return usdValue;
+    }
+
+    function handleOrderPaid(orderId) {
+        const paidAt = Date.now();
+        dispatch(fetchModifyIsPaidOrder({ orderId, isPaid: true, paidAt }));
+        dispatch(fetchOrderDetail({ orderId }));
+    }
+
     useEffect(() => {
-        forceAuthentication(shippingInfo, userInfo, cartItems);
-    });
+        setFetchData(true);
+        order.isPaid === true ? setIsPaid(true) : setIsPaid(false);
+        order.isDelivery === true ? SetIsDelivery(true) : SetIsDelivery(false);
+        setPaidTime(new Date(order.paidAt).toLocaleString());
+    }, [order]);
+
+    useEffect(() => {
+        forceAuthentication(userInfo);
+        dispatch(shippingConfirmSlice.actions.clearCreatedOrder());
+        dispatch(fetchVNDRate());
+    }, []);
 
     return (
         <div className="row mt-1">
@@ -40,24 +69,28 @@ export default function OrderDetail() {
                         <div className={style.detail_container}>
                             <span className={style.title}>Người đặt hàng:</span>
                             <span className={style.content}>
-                                {shippingInfo.customerGender === "male"
-                                    ? "Anh"
-                                    : "Chị"}{" "}
-                                {shippingInfo.customerName}
+                                {fetchData
+                                    ? order.userInfo.gender === "male"
+                                        ? `Anh ${order.userInfo.name}`
+                                        : `Chị ${order.userInfo.name}`
+                                    : ""}{" "}
                             </span>
                         </div>
                         <div className={style.detail_container}>
                             <span className={style.title}>Số điện thoại:</span>
                             <span className={style.content}>
-                                {shippingInfo.shippingPhone.length < 4
-                                    ? `${reverseFormatPhoneNumber(
-                                          shippingInfo.customerPhone
-                                      )}`
-                                    : `${reverseFormatPhoneNumber(
-                                          shippingInfo.shippingPhone
-                                      )}  -  ${reverseFormatPhoneNumber(
-                                          shippingInfo.customerPhone
-                                      )}`}
+                                {fetchData
+                                    ? order.shippingInfo.shippingPhone.length <
+                                      4
+                                        ? `${reverseFormatPhoneNumber(
+                                              order.userInfo.phone
+                                          )}`
+                                        : `${reverseFormatPhoneNumber(
+                                              order.shippingInfo.shippingPhone
+                                          )}  -  ${reverseFormatPhoneNumber(
+                                              order.userInfo.phone
+                                          )}`
+                                    : ""}
                             </span>
                         </div>
                         <div className={style.detail_container}>
@@ -65,9 +98,29 @@ export default function OrderDetail() {
                                 Địa chỉ giao hàng:
                             </span>
                             <span className={style.content}>
-                                {shippingInfo.shippingAddress}
+                                {fetchData ? order.shippingInfo.address : ""}
                             </span>
                         </div>
+                        {isDelivery ? (
+                            <div className={style.status_container}>
+                                <span className={style.title}>Trạng thái:</span>
+                                <span className={style.content}>
+                                    Đã nhận hàng
+                                </span>
+                            </div>
+                        ) : (
+                            <div
+                                className={clsx(
+                                    style.status_container,
+                                    style.status_container__active
+                                )}
+                            >
+                                <span className={style.title}>Trạng thái:</span>
+                                <span className={style.content}>
+                                    Đang vận chuyển
+                                </span>
+                            </div>
+                        )}
                     </div>
                     <div className={style.block_container}>
                         <div
@@ -81,11 +134,34 @@ export default function OrderDetail() {
                         <div className={style.detail_container}>
                             <span className={style.title}>Phương thức:</span>
                             <span className={style.content}>
-                                {shippingInfo.paymentMethod === "cash"
-                                    ? "Tiền mặt khi nhận hàng"
-                                    : shippingInfo.paymentMethod}
+                                {fetchData
+                                    ? order.paymentMethod === "cash"
+                                        ? "Tiền mặt khi nhận hàng"
+                                        : order.paymentMethod
+                                    : ""}
                             </span>
                         </div>
+                        {isPaid ? (
+                            <div className={style.status_container}>
+                                <span className={style.title}>Trạng thái:</span>
+                                <span className={style.content}>
+                                    Đã thanh toán
+                                    {order.paidAt ? ` (${paidTime})` : ""}
+                                </span>
+                            </div>
+                        ) : (
+                            <div
+                                className={clsx(
+                                    style.status_container,
+                                    style.status_container__active
+                                )}
+                            >
+                                <span className={style.title}>Trạng thái:</span>
+                                <span className={style.content}>
+                                    Chưa thanh toán
+                                </span>
+                            </div>
+                        )}
                     </div>
                     <div className={style.block_container}>
                         <div
@@ -97,21 +173,25 @@ export default function OrderDetail() {
                             <span>Giỏ hàng</span>
                         </div>
                         <div className={style.cart_container}>
-                            {cartItems ? (
-                                cartItems.map((el, id) => (
-                                    <div className={style.product_container}>
+                            {fetchData ? (
+                                order.orderItems.map((el, id) => (
+                                    <div
+                                        className={style.product_container}
+                                        key={id}
+                                    >
                                         <div className={style.product_detail}>
                                             <img
                                                 className={style.image}
-                                                src={el.image}
+                                                src={el.productId.image}
                                                 alt="product"
                                             />
                                             <div className={style.info}>
-                                                <span>{el.name}</span>
+                                                <span>{el.productId.name}</span>
                                                 <span>
                                                     Giá:{" "}
                                                     {numberWithCommas(
-                                                        el.primaryPrice
+                                                        el.productId
+                                                            .primaryPrice
                                                     )}
                                                     <span
                                                         style={{
@@ -131,7 +211,8 @@ export default function OrderDetail() {
                                             <span>
                                                 Tổng:{" "}
                                                 {numberWithCommas(
-                                                    el.primaryPrice * el.qty
+                                                    el.productId.primaryPrice *
+                                                        el.qty
                                                 )}
                                                 <span
                                                     style={{
@@ -159,14 +240,22 @@ export default function OrderDetail() {
                     <div className={style.sumary_detail}>
                         <span className={style.title}>Phí sản phẩm</span>
                         <span className={style.content}>
-                            {numberWithCommas(shippingInfo.productPrice)}
+                            {fetchData
+                                ? numberWithCommas(
+                                      order.shippingInfo.itemsPrice
+                                  )
+                                : ""}
                             <span>đ</span>
                         </span>
                     </div>
                     <div className={style.sumary_detail}>
                         <span className={style.title}>Phí vận chuyển</span>
                         <span className={style.content}>
-                            {numberWithCommas(shippingInfo.shippingPrice)}
+                            {fetchData
+                                ? numberWithCommas(
+                                      order.shippingInfo.shippingPrice
+                                  )
+                                : ""}
                             <span>đ</span>
                         </span>
                     </div>{" "}
@@ -176,21 +265,53 @@ export default function OrderDetail() {
                     >
                         <span className={style.title}>Tổng chi phí</span>
                         <span className={style.content}>
-                            {numberWithCommas(
-                                shippingInfo.productPrice +
-                                    shippingInfo.shippingPrice
-                            )}
+                            {fetchData
+                                ? numberWithCommas(
+                                      order.shippingInfo.itemsPrice +
+                                          order.shippingInfo.shippingPrice
+                                  )
+                                : ""}
                             <span>đ</span>
                         </span>
                     </div>
-                    <div className={style.submit_btn}>
-                        <button
-                            className="primary_btn_style_1"
-                            onClick={handleSubmitClick}
-                        >
-                            Đặt hàng
-                        </button>
-                    </div>
+                    <>
+                        {fetchData && !isPaid ? (
+                            <PayPalScriptProvider
+                                options={{
+                                    "client-id": `${process.env.REACT_APP_PAYPAL_CLIENT_ID}`,
+                                }}
+                            >
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        currency_code: "USD",
+                                                        value: convertVNDToUSD(
+                                                            order.shippingInfo
+                                                                .itemsPrice +
+                                                                order
+                                                                    .shippingInfo
+                                                                    .shippingPrice
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={(actions) => {
+                                        handleOrderPaid(order._id);
+                                    }}
+                                    onError={(err) => {
+                                        console.log(err);
+                                    }}
+                                />
+                            </PayPalScriptProvider>
+                        ) : (
+                            <></>
+                        )}
+                    </>
                 </div>
             </div>
         </div>

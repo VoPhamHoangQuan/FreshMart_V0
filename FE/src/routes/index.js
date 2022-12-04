@@ -46,7 +46,7 @@ export const PrivateRoutes = [
         layout: HeaderOnly,
     },
     {
-        path: "/orderInfo",
+        path: "/orderInfo/:orderId",
         component: OrderInfo,
         layout: HeaderOnly,
     },

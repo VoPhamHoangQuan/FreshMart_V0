@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import style from "./ShippingDetailsConfirm.module.scss";
@@ -8,10 +8,12 @@ import {
     formatPhoneNumber,
     reverseFormatPhoneNumber,
 } from "~/vendor/js";
-import {
+import shippingConfirmSlice, {
     fetchCreateOrder,
     fetchUpdateProductStock,
 } from "~/pages/user/ShippingConfirm/shippingConfirmSlice";
+import cartInfoSlice from "~/pages/user/CartInfo/cartInfoSlice";
+import PopUpNotify from "~/components/popupComponents/PopUpNotify";
 
 export default function ShippingDetailsConfirm() {
     const history = useNavigate();
@@ -19,6 +21,9 @@ export default function ShippingDetailsConfirm() {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     const shippingInfo = JSON.parse(localStorage.getItem("shippingInfo"));
     const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    const { createdOrder } = useSelector((state) => state.shippingConfirm);
+    const [submitState, setSubmitState] = useState(false);
+
     function forceAuthentication(shippingInfo, userInfo, cartItems) {
         if (!userInfo) {
             history("/signin");
@@ -41,7 +46,11 @@ export default function ShippingDetailsConfirm() {
             itemsPrice: shippingInfo.productPrice,
         };
         const updateItems = cartItems.map((el) => {
-            return { productId: el.productId, qty: el.qty, stock: el.stock };
+            return {
+                productId: el.productId,
+                qty: el.qty,
+                stock: el.stock,
+            };
         });
         dispatch(
             fetchUpdateProductStock({
@@ -56,11 +65,20 @@ export default function ShippingDetailsConfirm() {
                 paymentMethod: shippingInfo.paymentMethod,
             })
         );
+        dispatch(cartInfoSlice.actions.clearCart());
+        // setSubmitState(!submitState);
     }
 
     useEffect(() => {
+        if (createdOrder.newOrder) {
+            const orderId = createdOrder.newOrder._id;
+            history(`/orderInfo/${orderId}`, { replace: true });
+        }
+    }, [createdOrder.newOrder]);
+
+    useEffect(() => {
         forceAuthentication(shippingInfo, userInfo, cartItems);
-    });
+    }, []);
     return (
         <div className="row mt-1">
             <div className="col_lg_6_12">
@@ -134,9 +152,12 @@ export default function ShippingDetailsConfirm() {
                             <span>Giỏ hàng</span>
                         </div>
                         <div className={style.cart_container}>
-                            {cartItems ? (
+                            {cartItems.length > 0 ? (
                                 cartItems.map((el, id) => (
-                                    <div className={style.product_container}>
+                                    <div
+                                        className={style.product_container}
+                                        key={id}
+                                    >
                                         <div className={style.product_detail}>
                                             <img
                                                 className={style.image}
@@ -230,6 +251,15 @@ export default function ShippingDetailsConfirm() {
                     </div>
                 </div>
             </div>
+            {submitState ? (
+                <PopUpNotify
+                    title="Thông báo"
+                    content="Quý khách xác nhận đặt đơn hàng này?"
+                    active={true}
+                ></PopUpNotify>
+            ) : (
+                <></>
+            )}
         </div>
     );
 }

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProductDetail } from "./productInfoSlice";
 import Loading from "~/components/Loading";
-import Error from "~/components/Error";
+import Error from "~/components/popupComponents/Error";
 import BreadCrumb from "~/components/BreadCrumb";
 
 function ProductInfo() {

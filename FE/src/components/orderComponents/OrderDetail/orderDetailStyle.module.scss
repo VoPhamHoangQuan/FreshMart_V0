@@ -6,7 +6,7 @@
     border: 1px solid var(--border-color);
     border-radius: 0.6rem;
     padding: 2rem 1rem 0rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
     overflow-x: hidden;
 }
 
@@ -38,6 +38,21 @@
         position: relative;
         top: -0.4rem;
         font-size: 1.6rem;
+    }
+}
+
+.status_container {
+    background-color: var(--primary-color);
+    padding: 1rem 4rem;
+    margin: auto -2rem;
+    &__active {
+        background-color: var(--active-color);
+    }
+    .title {
+        color: #fff;
+    }
+    .content {
+        color: #fff;
     }
 }
 
@@ -83,9 +98,9 @@
 }
 .sumary_detail {
     display: flex;
-    margin-top: 2.2rem;
     justify-content: space-between;
     font-size: 1.6rem;
+    margin: 2.8rem 0;
 }
 .submit_btn {
     margin: 2rem 0;

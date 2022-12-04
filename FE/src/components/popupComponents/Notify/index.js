@@ -6,6 +6,9 @@ export default function Notify(props) {
         document
             .getElementById("notifyPopUp")
             .classList.toggle(style.layer__disActive);
+        if (props.callback) {
+            props.callback();
+        }
     }
 
     return (

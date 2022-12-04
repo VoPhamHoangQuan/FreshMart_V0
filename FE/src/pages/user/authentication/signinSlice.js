@@ -69,6 +69,9 @@ const signinSlice = createSlice({
         phoneGenerator: (state, action) => {
             state.phoneNumber = action.payload;
         },
+        refreshError: (state, action) => {
+            state.error = "";
+        },
         signOut: (state, action) => {
             state.phoneNumber = "";
             state.error = "";

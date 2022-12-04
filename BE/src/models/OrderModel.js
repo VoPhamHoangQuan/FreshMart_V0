@@ -15,7 +15,7 @@ const schema = mongoose.Schema(
         shippingInfo: {
             address: { type: String, require: true },
             shippingPhone: { type: String },
-            shipingPrice: { type: Number, require: true },
+            shippingPrice: { type: Number, require: true },
             itemsPrice: { type: Number, require: true },
         },
         paymentMethod: {

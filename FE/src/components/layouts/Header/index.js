@@ -1,10 +1,11 @@
 import clsx from "clsx";
-import style from "./header.module.scss";
-import logo from "~/vendor/image/logo_shop.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import style from "./header.module.scss";
+import logo from "~/vendor/image/logo_shop.png";
 import signinSlice from "~/pages/user/authentication/signinSlice";
+import PopUpCartProduct from "~/components/productComponents/PopUpCartProduct";
 
 function Header() {
     const cartItemsLocal = localStorage.getItem("cartItems")
@@ -19,8 +20,10 @@ function Header() {
     const dispatch = useDispatch();
     const history = useNavigate();
     useEffect(() => {
-        cartItemsLocal != null ? setCartActive(true) : setCartActive(false);
-    }, [cartItems, cartItemsLocal]);
+        cartItemsLocal !== null && cartItemsLocal.length !== 0
+            ? setCartActive(true)
+            : setCartActive(false);
+    }, [cartItemsLocal, cartItems]);
 
     function handleUserSectionClick() {
         document

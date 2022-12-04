@@ -26,7 +26,8 @@ const fetchCreateOrder = createAsyncThunk(
                 headers: header,
             });
 
-            localStorage.removeItem("cartItems");
+            localStorage.setItem("cartItems", JSON.stringify([]));
+
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -55,7 +56,11 @@ const fetchUpdateProductStock = createAsyncThunk(
 const shippingConfirmSlice = createSlice({
     name: "shippingConfirm",
     initialState,
-    reducers: {},
+    reducers: {
+        clearCreatedOrder: (state, action) => {
+            state.createdOrder = {};
+        },
+    },
     extraReducers: {
         [fetchCreateOrder.pending]: (state, action) => {
             state.loading = true;

@@ -6,8 +6,10 @@ import style from "./passEnteringStyle.module.scss";
 import checkedicon from "~/vendor/image/checked.png";
 import invalidIcon from "~/vendor/image/error_icon.png";
 import authCodeIcon from "~/vendor/image/authCode.png";
-import Notify from "~/components/Notify";
-import { fetchSigninUser } from "~/pages/user/authentication/signinSlice";
+import Notify from "~/components/popupComponents/Notify";
+import signinSlice, {
+    fetchSigninUser,
+} from "~/pages/user/authentication/signinSlice";
 
 function PassEntering() {
     const history = useNavigate();
@@ -29,6 +31,10 @@ function PassEntering() {
             : (passInput.current.type = "password");
     }
 
+    function notifyCallback() {
+        dispatch(signinSlice.actions.refreshError());
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
         dispatch(fetchSigninUser({ phone: phoneNumber, password: pass }));
@@ -46,7 +52,11 @@ function PassEntering() {
 
     return (
         <div className="row">
-            {error !== "" ? <Notify message={error}></Notify> : <></>}
+            {error !== "" ? (
+                <Notify message={error} callback={notifyCallback}></Notify>
+            ) : (
+                <></>
+            )}
 
             <div className={clsx("col_lg_6_12", style.container)}>
                 <form>

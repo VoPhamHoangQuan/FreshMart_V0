@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     Link,
@@ -12,7 +12,7 @@ import CartProduct from "~/components/productComponents/CartProduct";
 import { addToCart } from "./cartInfoSlice";
 import style from "./cartInfoStyle.module.scss";
 import Loading from "~/components/Loading";
-import Error from "~/components/Error";
+import Error from "~/components/popupComponents/Error";
 import { numberWithCommas } from "~/vendor/js";
 import BreadCrumb from "~/components/BreadCrumb";
 
@@ -21,11 +21,11 @@ function CartInfo() {
     const history = useNavigate();
     const { loading, error } = useSelector((state) => state.cartInfo);
     const cartItems = JSON.parse(localStorage.getItem("cartItems"));
-    const cartEmpty = cartItems == null ? true : false;
     const params = useParams();
     const productId = params.id;
     const [searchParams, setSearchParams] = useSearchParams();
     const buyQty = parseInt(searchParams.get("qty"));
+    const [cartEmpty, setCartEmpty] = useState(true);
     const totalProductPrice = !cartEmpty
         ? cartItems.reduce(
               (total, product) =>
@@ -33,6 +33,11 @@ function CartInfo() {
               0
           )
         : 0;
+    useEffect(() => {
+        cartItems === null || cartItems.length === 0
+            ? setCartEmpty(true)
+            : setCartEmpty(false);
+    }, [cartItems]);
 
     useEffect(() => {
         return async () => {

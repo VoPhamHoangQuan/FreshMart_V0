@@ -9,7 +9,7 @@ import {
     productListCategoryVegetableSelector,
 } from "./homeUserSelectors.js";
 import Loading from "~/components/Loading";
-import Error from "~/components/Error";
+import Error from "~/components/popupComponents/Error";
 import Product from "~/components/productComponents/Product";
 import Carousel from "~/components/CarouselComponent";
 

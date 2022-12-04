@@ -50,6 +50,10 @@ const cartInfoSlice = createSlice({
             );
             localStorage["cartItems"] = JSON.stringify(state.cartItems);
         },
+
+        clearCart: (state, action) => {
+            state.cartItems = [];
+        },
     },
     extraReducers: {
         [addToCart.pending]: (state, action) => {
