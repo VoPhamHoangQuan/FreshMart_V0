@@ -308,7 +308,7 @@ export default function ShippingDetails() {
                             />
                         </div>
 
-                        <div className={style.checkBtn_container}>
+                        {/* <div className={style.checkBtn_container}>
                             <label
                                 htmlFor="momo"
                                 className={style.paymentIcon_container}
@@ -323,7 +323,7 @@ export default function ShippingDetails() {
                                 value="momo"
                                 onChange={(e) => handlePaymentChange(e)}
                             />
-                        </div>
+                        </div> */}
 
                         <div className={style.checkBtn_container}>
                             <label

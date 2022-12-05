@@ -33,7 +33,7 @@ const schema = mongoose.Schema(
         deliveredAt: { type: Date },
     },
     {
-        timeStamps: true,
+        timestamps: true,
     }
 );
 

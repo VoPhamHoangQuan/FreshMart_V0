@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+}
+.userInfo_container {
+    display: flex;
+    align-items: center;
+    .userImage_container {
+        img {
+            width: 5.4rem;
+            margin-right: 1.6rem;
+        }
+    }
+    .userInfo_container {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        .name {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--font-color);
+            margin-bottom: 1rem;
+        }
+        .editProfileLink {
+            font-size: 1.6rem;
+            text-decoration: none;
+            color: var(--font-color);
+            opacity: 0.8;
+            i {
+                font-size: 1.4rem;
+                margin-right: 0.4rem;
+            }
+            &:hover {
+                color: var(--active-color);
+            }
+        }
+    }
+}
+
+.userControls_container {
+    margin-top: 4rem;
+
+    .control_container {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--font-color);
+        font-size: 1.6rem;
+        margin-bottom: 2.4rem;
+        i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.8rem;
+        }
+        &:hover {
+            color: var(--active-color);
+        }
+    }
+}

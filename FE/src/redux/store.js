@@ -7,6 +7,7 @@ import signinSlice from "../pages/user/authentication/signinSlice";
 import shippingInfoSlice from "../pages/user/ShippingInfo/shippingInfoSlice";
 import shippingConfirmSlice from "../pages/user/ShippingConfirm/shippingConfirmSlice";
 import orderInfoSlice from "../pages/user/OrderInfo/orderInfoSlice";
+import userOrderListSlice from "../pages/user/UserOrderList/userOrderListSlice";
 
 const store = configureStore({
     reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
         shippingInfo: shippingInfoSlice.reducer,
         shippingConfirm: shippingConfirmSlice.reducer,
         orderInfo: orderInfoSlice.reducer,
+        userOrderInfo: userOrderListSlice.reducer,
     },
 });
 

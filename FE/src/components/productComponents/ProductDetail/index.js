@@ -8,7 +8,6 @@ import { numberWithCommas } from "~/vendor/js";
 import { addToCart } from "~/pages/user/CartInfo/cartInfoSlice.js";
 
 function ProductDetail({ data }) {
-    const history = useNavigate();
     const dispatch = useDispatch();
     const [inStock, setInStock] = useState(true);
     const [productQuantity, setProductQuantity] = useState(1);

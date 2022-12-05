@@ -1,13 +1,8 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    Link,
-    useNavigate,
-    useParams,
-    useSearchParams,
-} from "react-router-dom";
-import emptyCartImg from "~/vendor/image/empty_cart.jpg";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import EmptyNotify from "~/components/popupComponents/EmptyNotify";
 import CartProduct from "~/components/productComponents/CartProduct";
 import { addToCart } from "./cartInfoSlice";
 import style from "./cartInfoStyle.module.scss";
@@ -51,7 +46,7 @@ function CartInfo() {
 
     return (
         <>
-            <div className="row mb-2">
+            <div className="row mb-1">
                 <div className={"col_lg_8_12 align-center"}>
                     <BreadCrumb
                         directionMap={[
@@ -86,20 +81,10 @@ function CartInfo() {
                             </div>
                             <div className={style.list_content}>
                                 {cartEmpty ? (
-                                    <div className={style.empty_cart_container}>
-                                        <img
-                                            src={emptyCartImg}
-                                            alt="empty cart"
-                                            className={style.empty_cart_img}
-                                        />
-                                        <Link
-                                            to="/"
-                                            className={style.empty_cart_link}
-                                        >
-                                            Giỏ hàng trống, ấn vào đây để mua
-                                            hàng.{" "}
-                                        </Link>
-                                    </div>
+                                    <EmptyNotify
+                                        message=" Giỏ hàng trống, ấn vào đây để mua
+                                            hàng."
+                                    ></EmptyNotify>
                                 ) : (
                                     cartItems.map((cartItem, index) => (
                                         <CartProduct
@@ -116,22 +101,18 @@ function CartInfo() {
                         ) : (
                             <div className={style.cart_sumary}>
                                 <div className={style.total_price_container}>
-                                    <span>Tiền hàng</span>
+                                    <span>
+                                        <i
+                                            style={{ marginRight: "0.6rem" }}
+                                            className="fa-regular fa-money-bill-1"
+                                        ></i>
+                                        Tiền hàng
+                                    </span>
                                     <span className={style.price}>
                                         {numberWithCommas(totalProductPrice)}
                                         <span>đ</span>
                                     </span>
                                 </div>
-
-                                {/* <div className={style.total_price_container}>
-                                    <span>Tổng chi phí</span>
-                                    <span className={style.price}>
-                                        {numberWithCommas(
-                                            totalProductPrice
-                                        )}
-                                        <span>đ</span>
-                                    </span>
-                                </div> */}
                                 <div className={style.continue_btn}>
                                     <button
                                         className="primary_btn_style_1"

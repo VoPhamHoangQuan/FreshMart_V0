@@ -2,7 +2,8 @@
     padding: 0rem 0rem 1rem 0;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .product_container {
@@ -69,7 +70,7 @@
     font-size: 1.6rem;
     color: var(--font-color);
     border-radius: 0.4rem;
-    width: 4rem;
+    width: 3.8rem;
     &:hover {
         background-color: var(--background-color);
         cursor: pointer;
@@ -77,9 +78,9 @@
 }
 .quantity_input {
     border: none;
-    width: 6rem;
+    width: 3.8rem;
     font-size: 1.6rem;
-    padding: 1rem;
+    padding: 0.6rem;
     text-align: center;
     margin: 0 0.4rem;
     &::-webkit-outer-spin-button,
@@ -99,8 +100,7 @@
 .total_product_price {
     position: relative;
     font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--font-color);
+    color: var(--active-color);
     span {
         position: absolute;
         top: -0.4rem;

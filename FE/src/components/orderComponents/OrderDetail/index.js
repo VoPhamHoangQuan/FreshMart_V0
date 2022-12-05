@@ -64,7 +64,13 @@ export default function OrderDetail() {
                                 style.detail_container__title
                             )}
                         >
-                            <span>Thông tin liên lạc vận chuyển</span>
+                            <span>
+                                <i
+                                    style={{ marginRight: "0.6rem" }}
+                                    className="fa-solid fa-truck-fast"
+                                ></i>
+                                Thông tin liên lạc vận chuyển
+                            </span>
                         </div>
                         <div className={style.detail_container}>
                             <span className={style.title}>Người đặt hàng:</span>
@@ -129,7 +135,13 @@ export default function OrderDetail() {
                                 style.detail_container__title
                             )}
                         >
-                            <span>Phương thức thanh toán</span>
+                            <span>
+                                <i
+                                    style={{ marginRight: "0.6rem" }}
+                                    className="fa-regular fa-credit-card"
+                                ></i>
+                                Phương thức thanh toán
+                            </span>
                         </div>
                         <div className={style.detail_container}>
                             <span className={style.title}>Phương thức:</span>
@@ -170,7 +182,13 @@ export default function OrderDetail() {
                                 style.detail_container__title
                             )}
                         >
-                            <span>Giỏ hàng</span>
+                            <span>
+                                <i
+                                    style={{ marginRight: "0.6rem" }}
+                                    className="fa-solid fa-bag-shopping"
+                                ></i>
+                                Giỏ hàng
+                            </span>
                         </div>
                         <div className={style.cart_container}>
                             {fetchData ? (
@@ -236,7 +254,13 @@ export default function OrderDetail() {
             </div>
             <div className="col_lg_2_12">
                 <div className={clsx(style.block_container)}>
-                    <span className={style.sumary_title}>Tổng Đơn hàng</span>
+                    <span className={style.sumary_title}>
+                        <i
+                            style={{ marginRight: "0.6rem" }}
+                            className="fa-solid fa-sack-dollar"
+                        ></i>
+                        Tổng Đơn hàng
+                    </span>
                     <div className={style.sumary_detail}>
                         <span className={style.title}>Phí sản phẩm</span>
                         <span className={style.content}>

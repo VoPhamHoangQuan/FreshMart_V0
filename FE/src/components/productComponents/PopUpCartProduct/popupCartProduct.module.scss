@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    padding: 1rem 0;
+    right: 0;
+    top: 90%;
+    width: 38rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 2rem var(--shadow-color);
+    animation: menuActive 0.2s linear;
+    @keyframes menuActive {
+        0% {
+            transform: translateY(-1rem);
+            opacity: 0;
+        }
+        100% {
+            transform: translatey(0rem);
+            opacity: 1;
+        }
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: -3%;
+        right: 5%;
+        border-left: 1.4rem solid transparent;
+        border-right: 1.4rem solid transparent;
+        border-bottom: 1.4rem solid #fff;
+    }
+
+    &__active {
+        display: flex;
+    }
+}
+.title {
+    font-size: 1.6rem;
+    color: var(--font-color);
+    opacity: 0.6;
+    margin: 1rem 0 2rem 1rem;
+}
+.cartContainer {
+    max-height: 30rem;
+    overflow-y: scroll;
+    scroll-padding: 1rem;
+    margin-top: 1rem;
+    padding: 0 1.4rem;
+}
+.itemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+    .productInfo {
+        display: flex;
+        align-items: center;
+        color: var(--font-color);
+        max-width: 70%;
+    }
+    img {
+        width: 4rem;
+        margin-right: 2rem;
+    }
+    .name {
+        font-size: 1.6rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        line-height: 120%;
+    }
+    .price {
+        font-size: 1.4rem;
+        color: var(--active-color);
+        position: relative;
+        span {
+            position: absolute;
+            top: -0.4rem;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.btnContainer {
+    padding-right: 1rem;
+    width: 50%;
+    margin-left: 50%;
+}
+
+.emptyCartImg_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 20rem;
+    }
+    span {
+        color: var(--font-color);
+        font-size: 1.6rem;
+    }
+}

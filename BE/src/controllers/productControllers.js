@@ -1,5 +1,6 @@
 import ProductsModel from "../models/ProductModel.js";
 import { data } from "../data.js";
+import escapeStringRegexp from "escape-string-regexp";
 
 export const initProducts = async (req, res) => {
     try {
@@ -51,5 +52,23 @@ export const adjustProductInStock = async (req, res) => {
         res.status(200).send({ message: "update product stock success" });
     } catch (err) {
         res.status(500).json({ error: err });
+    }
+};
+
+export const getProductListBySearchName = async (req, res) => {
+    try {
+        const searchString = req.params.key;
+        const listProduct = await ProductsModel.find({
+            $or: [
+                { name: { $regex: searchString } },
+                { category: { $regex: searchString } },
+                { description: { $regex: searchString } },
+                { origin: { $regex: searchString } },
+                { brand: { $regex: searchString } },
+            ],
+        });
+        res.status(200).send(listProduct);
+    } catch (err) {
+        res.satus(500).json({ error: err });
     }
 };

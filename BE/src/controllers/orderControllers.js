@@ -64,3 +64,27 @@ export const modifyIsPaidOrder = async (req, res) => {
         res.status(500).json({ error: err });
     }
 };
+
+export const getOrdersByUserId = async (req, res) => {
+    try {
+        if (req.userInfo.id) {
+            const userId = req.userInfo.id;
+            const orderList = await OrderModel.find({ userInfo: userId })
+                .populate({
+                    path: "orderItems",
+                    populate: {
+                        path: "productId",
+                        select: "name image primaryPrice",
+                    },
+                })
+                .sort({
+                    createdAt: -1,
+                });
+            res.status(200).json(orderList);
+        } else {
+            res.status(404).json({ error: "getOrdersByUserId userId Invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};

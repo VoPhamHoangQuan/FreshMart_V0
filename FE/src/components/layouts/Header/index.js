@@ -4,18 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import style from "./header.module.scss";
 import logo from "~/vendor/image/logo_shop.png";
+import defaultUserImg from "~/vendor/image/default_user_image.png";
 import signinSlice from "~/pages/user/authentication/signinSlice";
 import PopUpCartProduct from "~/components/productComponents/PopUpCartProduct";
 
 function Header() {
     const cartItemsLocal = localStorage.getItem("cartItems")
         ? JSON.parse(localStorage.getItem("cartItems"))
-        : null;
+        : [];
 
     const userInfoLocal = localStorage.getItem("userInfo")
         ? JSON.parse(localStorage.getItem("userInfo"))
         : null;
     const [cartActive, setCartActive] = useState(false);
+    const [popUpActive, setPopUpActive] = useState(false);
     const { cartItems } = useSelector((state) => state.cartInfo);
     const dispatch = useDispatch();
     const history = useNavigate();
@@ -25,16 +27,21 @@ function Header() {
             : setCartActive(false);
     }, [cartItemsLocal, cartItems]);
 
-    function handleUserSectionClick() {
-        document
-            .getElementById("userMenu")
-            .classList.toggle(style.user_actionList__active);
-    }
-
     function handleLogoutClick() {
         setCartActive(false);
         dispatch(signinSlice.actions.signOut());
         history("/", { replace: false });
+    }
+
+    function handleUserOrderClick() {
+        history(`/user/orderList`);
+    }
+    function handleUserProfileClick() {}
+    function handleMouseOver() {
+        setPopUpActive(true);
+    }
+    function handleMouseLeave() {
+        setPopUpActive(false);
     }
     return (
         <div className={style.Header_container}>
@@ -77,56 +84,46 @@ function Header() {
                     <div className={style.Header_actionContainer}>
                         <ul className={style.Header_actionList}>
                             {userInfoLocal ? (
-                                <Link to="#">
-                                    <li className={clsx(style.Header_action)}>
-                                        <div
-                                            className={style.user_section}
-                                            onClick={handleUserSectionClick}
-                                        >
-                                            <img
-                                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ed_Sheeran_2013.jpg/640px-Ed_Sheeran_2013.jpg"
-                                                alt="user img"
-                                                className={style.user_image}
-                                            />
-                                            <span className={style.user_name}>
-                                                {userInfoLocal.gender === "male"
-                                                    ? `Anh ${userInfoLocal.name}`
-                                                    : `Chị ${userInfoLocal.name}`}
-                                            </span>
-                                            <ul
-                                                className={
-                                                    style.user_actionList
-                                                }
-                                                id="userMenu"
+                                <li className={clsx(style.Header_action)}>
+                                    <div
+                                        className={clsx(
+                                            style.user_section,
+                                            style.userPopUpActive
+                                        )}
+                                    >
+                                        <img
+                                            src={defaultUserImg}
+                                            alt="user img"
+                                            className={style.user_image}
+                                        />
+
+                                        <span className={style.user_name}>
+                                            {userInfoLocal.gender === "male"
+                                                ? `Anh ${userInfoLocal.name}`
+                                                : `Chị ${userInfoLocal.name}`}
+                                        </span>
+
+                                        <ul className={style.user_actionList}>
+                                            <li
+                                                className={style.user_action}
+                                                onClick={handleUserOrderClick}
                                             >
-                                                <li
-                                                    className={
-                                                        style.user_action
-                                                    }
-                                                >
-                                                    Đơn hàng
-                                                    <i className="fa-solid fa-square-up-right"></i>
-                                                </li>
-                                                <li
-                                                    className={
-                                                        style.user_action
-                                                    }
-                                                >
-                                                    Thông tin cá nhân
-                                                    <i className="fa-solid fa-square-up-right"></i>
-                                                </li>
-                                                <li
-                                                    className={
-                                                        style.user_action
-                                                    }
-                                                    onClick={handleLogoutClick}
-                                                >
-                                                    Đăng xuất
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </Link>
+                                                Đơn hàng
+                                                <i className="fa-solid fa-square-up-right"></i>
+                                            </li>
+                                            <li className={style.user_action}>
+                                                Thông tin cá nhân
+                                                <i className="fa-solid fa-square-up-right"></i>
+                                            </li>
+                                            <li
+                                                className={style.user_action}
+                                                onClick={handleLogoutClick}
+                                            >
+                                                Đăng xuất
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                             ) : (
                                 <a href="/signin">
                                     <li className={clsx(style.Header_action)}>
@@ -134,22 +131,32 @@ function Header() {
                                     </li>
                                 </a>
                             )}
-
-                            <Link to="/cart">
-                                <li
-                                    className={clsx(style.Header_action, {
-                                        [style.Header_action__active]:
-                                            cartActive,
-                                    })}
-                                >
-                                    <i className="fa fa-opencart shopping_cart_icon"></i>
-                                    {cartActive ? (
-                                        <span>{cartItemsLocal.length}</span>
-                                    ) : (
-                                        <></>
-                                    )}
-                                </li>
-                            </Link>
+                            <div
+                                onMouseOver={handleMouseOver}
+                                onMouseLeave={handleMouseLeave}
+                                className={style.cartPopUpActive}
+                            >
+                                <Link to="/cart">
+                                    <li
+                                        className={clsx(style.Header_action, {
+                                            [style.Header_action__active]:
+                                                cartActive,
+                                        })}
+                                    >
+                                        <i className="fa fa-opencart shopping_cart_icon"></i>
+                                        {cartActive ? (
+                                            <span>{cartItemsLocal.length}</span>
+                                        ) : (
+                                            <></>
+                                        )}
+                                    </li>
+                                </Link>
+                                {popUpActive && (
+                                    <PopUpCartProduct
+                                        cartItems={cartItemsLocal}
+                                    ></PopUpCartProduct>
+                                )}
+                            </div>
                         </ul>
                     </div>
                 </div>

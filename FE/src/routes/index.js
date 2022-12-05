@@ -1,3 +1,4 @@
+import { HeaderOnly, ProfileLayout } from "../components/layouts";
 import HomeUser from "../pages/user/HomeUser";
 import ProductInfo from "../pages/user/ProductInfo";
 import CartInfo from "../pages/user/CartInfo";
@@ -8,7 +9,7 @@ import PassEntering from "../pages/user/authentication/SigninPass";
 import ShippingInfo from "../pages/user/ShippingInfo";
 import ShippingConfirm from "../pages/user/ShippingConfirm";
 import OrderInfo from "../pages/user/OrderInfo";
-import { HeaderOnly } from "../components/layouts";
+import UserOrderList from "../pages/user/UserOrderList";
 
 export const PublicRoutes = [
     { path: "/", component: HomeUser },
@@ -49,5 +50,10 @@ export const PrivateRoutes = [
         path: "/orderInfo/:orderId",
         component: OrderInfo,
         layout: HeaderOnly,
+    },
+    {
+        path: "/user/orderList",
+        component: UserOrderList,
+        layout: ProfileLayout,
     },
 ];
