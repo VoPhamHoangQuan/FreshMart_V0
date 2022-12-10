@@ -34,28 +34,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .sidebar_itemParent {
     padding: 1rem;
-    margin: 1.2rem 0 0.8rem 0;
+    margin: 1rem auto;
     font-size: 1.6rem;
-    width: 100%;
+    width: 90%;
     line-height: 1.8rem;
 
-    &:hover {
-        color: var(--active-color);
-        cursor: pointer;
-        animation: fontToActive ease-in 0.2s;
-    }
+    // &:hover {
+    //     color: var(--active-color);
+    //     cursor: pointer;
+    //     animation: fontToActive ease-in 0.2s;
+    // }
 }
 
 .sidebar_itemChildList {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    width: 80%;
 
     @keyframes dropDown {
         from {
@@ -68,11 +68,12 @@
 }
 
 .sidebar_itemChild {
-    padding: 0.8rem 0 0.8rem 3.2rem;
+    padding: 0.8rem 1.6rem 0.8rem 1.6rem;
     font-size: 1.6rem;
     color: var(--font-color);
-    width: 100%;
-
+    width: 80%;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
     &:hover {
         color: var(--active-color);
         cursor: pointer;

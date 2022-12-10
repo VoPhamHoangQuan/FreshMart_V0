@@ -7,8 +7,14 @@ import logo from "~/vendor/image/logo_shop.png";
 import defaultUserImg from "~/vendor/image/default_user_image.png";
 import signinSlice from "~/pages/user/authentication/signinSlice";
 import PopUpCartProduct from "~/components/productComponents/PopUpCartProduct";
+import {
+    fetchProductListBySearch,
+    fetchProductList,
+} from "~/pages/user/HomeUser/homeUserSlide";
 
 function Header() {
+    const dispatch = useDispatch();
+    const history = useNavigate();
     const cartItemsLocal = localStorage.getItem("cartItems")
         ? JSON.parse(localStorage.getItem("cartItems"))
         : [];
@@ -16,16 +22,26 @@ function Header() {
     const userInfoLocal = localStorage.getItem("userInfo")
         ? JSON.parse(localStorage.getItem("userInfo"))
         : null;
+    const { cartItems } = useSelector((state) => state.cartInfo);
     const [cartActive, setCartActive] = useState(false);
     const [popUpActive, setPopUpActive] = useState(false);
-    const { cartItems } = useSelector((state) => state.cartInfo);
-    const dispatch = useDispatch();
-    const history = useNavigate();
-    useEffect(() => {
-        cartItemsLocal !== null && cartItemsLocal.length !== 0
-            ? setCartActive(true)
-            : setCartActive(false);
-    }, [cartItemsLocal, cartItems]);
+    const [searchString, setSearchString] = useState("");
+
+    function handleHomeLogoClick() {
+        dispatch(fetchProductList());
+    }
+
+    function handleSearchChange(e) {
+        setSearchString(e.target.value);
+    }
+
+    function handleSearchClick() {
+        if (searchString !== "") {
+            dispatch(fetchProductListBySearch({ key: searchString }));
+        } else {
+            dispatch(fetchProductList());
+        }
+    }
 
     function handleLogoutClick() {
         setCartActive(false);
@@ -36,13 +52,23 @@ function Header() {
     function handleUserOrderClick() {
         history(`/user/orderList`);
     }
-    function handleUserProfileClick() {}
+    function handleUserProfileClick() {
+        history(`/user/userProfile`);
+    }
+
     function handleMouseOver() {
         setPopUpActive(true);
     }
+
     function handleMouseLeave() {
         setPopUpActive(false);
     }
+
+    useEffect(() => {
+        cartItemsLocal !== null && cartItemsLocal.length !== 0
+            ? setCartActive(true)
+            : setCartActive(false);
+    }, [cartItemsLocal, cartItems]);
     return (
         <div className={style.Header_container}>
             <div className={style.Header_slogan}>
@@ -56,7 +82,11 @@ function Header() {
                         style.Header_contents
                     )}
                 >
-                    <Link className={style.Header_logo_link} to={`/`}>
+                    <Link
+                        className={style.Header_logo_link}
+                        to={`/`}
+                        onClick={handleHomeLogoClick}
+                    >
                         <img
                             className={style.Header_logo}
                             src={logo}
@@ -64,20 +94,16 @@ function Header() {
                         />
                     </Link>
 
-                    {/* <div className={style.Header_addressContainer}>
-                        <i className="fas fa-map-marker-alt"></i>
-                        <p className={style.Header_address}>
-                            Giao tại: Q. Tân Phú, P. Hòa Thạnh, TPHCM
-                        </p>
-                    </div> */}
-
                     <div className={style.Header_searchBar}>
                         <input
                             className={style.Header_searchInput}
+                            value={searchString}
+                            onChange={(e) => handleSearchChange(e)}
                             placeholder="Tìm kiếm thông tin sản phẩm"
                         />
                         <i
                             className={`fas fa-search ${style.Header_searchIcon}`}
+                            onClick={handleSearchClick}
                         ></i>
                     </div>
 
@@ -92,7 +118,11 @@ function Header() {
                                         )}
                                     >
                                         <img
-                                            src={defaultUserImg}
+                                            src={
+                                                userInfoLocal.image
+                                                    ? userInfoLocal.image
+                                                    : defaultUserImg
+                                            }
                                             alt="user img"
                                             className={style.user_image}
                                         />
@@ -111,7 +141,10 @@ function Header() {
                                                 Đơn hàng
                                                 <i className="fa-solid fa-square-up-right"></i>
                                             </li>
-                                            <li className={style.user_action}>
+                                            <li
+                                                className={style.user_action}
+                                                onClick={handleUserProfileClick}
+                                            >
                                                 Thông tin cá nhân
                                                 <i className="fa-solid fa-square-up-right"></i>
                                             </li>

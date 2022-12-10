@@ -163,7 +163,7 @@ export default function ShippingDetails() {
                                         className={style.genderIcon}
                                     />
                                 )}
-                                <label htmlFor="male">Anh</label>
+                                <label>Anh</label>
                             </div>
                             <div className={style.gender}>
                                 {userInfo.gender === "female" ? (
@@ -180,7 +180,7 @@ export default function ShippingDetails() {
                                     />
                                 )}
 
-                                <label htmlFor="female">Chị</label>
+                                <label>Chị</label>
                             </div>
                         </div>
                         <div

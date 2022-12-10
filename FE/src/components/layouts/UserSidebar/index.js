@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import style from "./userSidebarStyle.module.scss";
@@ -9,30 +9,55 @@ import { useDispatch } from "react-redux";
 export default function UserSidebar() {
     const dispatch = useDispatch();
     const history = useNavigate();
+    const userInfo = localStorage.getItem("userInfo")
+        ? JSON.parse(localStorage.getItem("userInfo"))
+        : null;
 
     function handleLogoutClick() {
         dispatch(signinSlice.actions.signOut());
         history("/", { replace: false });
     }
+
     return (
         <div className="col_lg_2_10">
             <div className={clsx("row mt-1", style.container)}>
-                <div className={style.userInfo_container}>
-                    <div className={style.userImage_container}>
-                        <img src={defaultUserImg} alt="default user"></img>
-                    </div>
+                {userInfo ? (
                     <div className={style.userInfo_container}>
-                        <span className={style.name}>anh quan</span>
-                        <Link to="#" className={style.editProfileLink}>
-                            <span>
-                                <i className="fa-solid fa-pen"></i>
-                                Sửa hồ sơ
+                        <div className={style.userImage_container}>
+                            <img
+                                src={
+                                    userInfo.image
+                                        ? userInfo.image
+                                        : defaultUserImg
+                                }
+                                alt="default user"
+                            ></img>
+                        </div>
+                        <div className={style.userInfo_container}>
+                            <span className={style.name}>
+                                {userInfo.gender === "male"
+                                    ? `Anh ${userInfo.name}`
+                                    : `Chị ${userInfo.name}`}
                             </span>
-                        </Link>
+                            <Link
+                                to="/user/userProfile"
+                                className={style.editProfileLink}
+                            >
+                                <span>
+                                    <i className="fa-solid fa-pen"></i>
+                                    Sửa hồ sơ
+                                </span>
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <></>
+                )}
                 <div className={style.userControls_container}>
-                    <Link to="/" className={style.control_container}>
+                    <Link
+                        to="/user/userProfile"
+                        className={style.control_container}
+                    >
                         <i className="fa-regular fa-user"></i>
                         <span>Tài khoản của tôi</span>
                     </Link>

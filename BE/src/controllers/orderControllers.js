@@ -69,7 +69,122 @@ export const getOrdersByUserId = async (req, res) => {
     try {
         if (req.userInfo.id) {
             const userId = req.userInfo.id;
-            const orderList = await OrderModel.find({ userInfo: userId })
+            const orderList = await OrderModel.find({
+                userInfo: userId,
+                isDeleted: false,
+            })
+                .populate({
+                    path: "orderItems",
+                    populate: {
+                        path: "productId",
+                        select: "name image primaryPrice",
+                    },
+                })
+                .sort({
+                    createdAt: -1,
+                });
+            res.status(200).json(orderList);
+        } else {
+            res.status(404).json({ error: "getOrdersByUserId userId Invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
+
+export const getPaidOrdersByUserId = async (req, res) => {
+    try {
+        if (req.userInfo.id) {
+            const userId = req.userInfo.id;
+            const orderList = await OrderModel.find({
+                userInfo: userId,
+                isPaid: true,
+                isDeleted: false,
+            })
+                .populate({
+                    path: "orderItems",
+                    populate: {
+                        path: "productId",
+                        select: "name image primaryPrice",
+                    },
+                })
+                .sort({
+                    createdAt: -1,
+                });
+            res.status(200).json(orderList);
+        } else {
+            res.status(404).json({ error: "getOrdersByUserId userId Invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
+
+export const getNotPayOrdersByUserId = async (req, res) => {
+    try {
+        if (req.userInfo.id) {
+            const userId = req.userInfo.id;
+            const orderList = await OrderModel.find({
+                userInfo: userId,
+                isPaid: false,
+                isDeleted: false,
+            })
+                .populate({
+                    path: "orderItems",
+                    populate: {
+                        path: "productId",
+                        select: "name image primaryPrice",
+                    },
+                })
+                .sort({
+                    createdAt: -1,
+                });
+            res.status(200).json(orderList);
+        } else {
+            res.status(404).json({ error: "getOrdersByUserId userId Invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
+
+export const getNotDeliveryOrdersByUserId = async (req, res) => {
+    try {
+        if (req.userInfo.id) {
+            const userId = req.userInfo.id;
+            const orderList = await OrderModel.find({
+                userInfo: userId,
+                isDelivered: false,
+                isDeleted: false,
+            })
+                .populate({
+                    path: "orderItems",
+                    populate: {
+                        path: "productId",
+                        select: "name image primaryPrice",
+                    },
+                })
+                .sort({
+                    createdAt: -1,
+                });
+            res.status(200).json(orderList);
+        } else {
+            res.status(404).json({ error: "getOrdersByUserId userId Invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
+
+export const getDeliveredOrdersByUserId = async (req, res) => {
+    try {
+        if (req.userInfo.id) {
+            const userId = req.userInfo.id;
+            const orderList = await OrderModel.find({
+                userInfo: userId,
+                isDelivered: true,
+                isDeleted: false,
+            })
                 .populate({
                     path: "orderItems",
                     populate: {

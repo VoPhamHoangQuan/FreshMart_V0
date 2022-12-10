@@ -1,0 +1,15 @@
+.container {
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-start;
+}
+.controler_contain {
+    padding: 2rem 2.8rem;
+    background-color: #fff;
+    border: none;
+    font-size: 1.6rem;
+    flex: 1;
+    &:focus-within {
+        border-bottom: 2px solid var(--active-color);
+    }
+}

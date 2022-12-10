@@ -15,11 +15,13 @@ import Carousel from "~/components/CarouselComponent";
 
 function HomeUser() {
     const dispatch = useDispatch();
+    const { productListBySearch, error, loading, productList } = useSelector(
+        (state) => state.homeUser
+    );
     const [currentMeatProductNum, setCurrentMeatProductNum] = useState(8);
     const [currentVegetableProductNum, setCurrentVegetableProductNum] =
         useState(8);
     const homeUser = useSelector(homeUserSelector);
-    const { error, loading } = homeUser;
     const meatList = useSelector(productListCategoryMeatSelector).slice(
         0,
         currentMeatProductNum
@@ -52,7 +54,7 @@ function HomeUser() {
                 <Loading></Loading>
             ) : error !== "" ? (
                 <Error type="danger" message={homeUser.error}></Error>
-            ) : (
+            ) : productListBySearch.length === 0 && productList.length > 0 ? (
                 <>
                     {/* carousel */}
                     <div className={clsx("row ", "mt-1")}>
@@ -254,6 +256,47 @@ function HomeUser() {
                     </div>
                     {/* end Vegetable Product Section */}
                 </>
+            ) : (
+                <div className={clsx("row ", "mt-1")}>
+                    <div className={style.homeUser_productSection}>
+                        <div className={clsx(style.productSection_Container)}>
+                            {/* title */}
+                            <div
+                                className={style.productSection_titleContainer}
+                            >
+                                <div className={style.title}>
+                                    <span>SẢN PHẨM TÌM ĐƯỢC</span>
+                                </div>
+                            </div>
+                            {/* end title */}
+
+                            {/* product show case */}
+                            <div
+                                className={
+                                    style.productSection_productContainer
+                                }
+                            >
+                                {productListBySearch.map((product, index) => (
+                                    <Product
+                                        key={index}
+                                        product={product}
+                                    ></Product>
+                                ))}
+                            </div>
+                            {/*end product show case */}
+                        </div>
+                        <div className={style.productSection_seeMore}>
+                            <span
+                                onClick={() =>
+                                    setCurrentMeatProductNum((prev) => prev + 8)
+                                }
+                            >
+                                Xem thêm
+                                <i className="fa-solid fa-sort-down"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             )}
         </div>
     );

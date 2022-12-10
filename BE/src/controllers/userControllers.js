@@ -5,7 +5,7 @@ import { jwtGenerator } from "../vendor/index.js";
 
 export const initUser = async (req, res) => {
     try {
-        // await UserModel.remove({});
+        await UserModel.remove({});
         const initUserList = await UserModel.insertMany(data.users);
         res.status(200).json(initUserList);
     } catch (err) {
@@ -49,7 +49,10 @@ export const existedPhone = async (req, res) => {
 
 export const signinUser = async (req, res) => {
     try {
-        const existedUser = await UserModel.findOne({ phone: req.body.phone });
+        const existedUser = await UserModel.findOne({
+            phone: req.body.phone,
+            isDeleted: false,
+        });
         if (existedUser) {
             if (compareSync(req.body.password, existedUser.password)) {
                 res.status(200).json({
@@ -57,6 +60,7 @@ export const signinUser = async (req, res) => {
                     gender: existedUser.gender,
                     phone: existedUser.phone,
                     isAdmin: existedUser.isAdmin,
+                    isDelete: existedUser.isDelete,
                     token: jwtGenerator(existedUser),
                 });
             } else {
@@ -65,6 +69,24 @@ export const signinUser = async (req, res) => {
         } else {
             res.status(400).json({ error: "Phone not exist" });
         }
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+export const updateUser = async (req, res) => {
+    try {
+        const userId = req.userInfo.id;
+        const oldUser = await UserModel.findOneAndUpdate(
+            { _id: userId },
+            {
+                name: req.body.name,
+                gender: req.body.gender,
+                image: req.body.imageUrl,
+            }
+        );
+
+        res.status(200).json(oldUser);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

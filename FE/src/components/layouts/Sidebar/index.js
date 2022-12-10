@@ -1,10 +1,16 @@
 import clsx from "clsx";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import style from "./sideBar.module.scss";
+import { fetchProductListBySearch } from "~/pages/user/HomeUser/homeUserSlide";
 
 function Sidebar() {
+    const dispatch = useDispatch();
+    function handleCategoryClick(category) {
+        dispatch(fetchProductListBySearch({ key: category }));
+    }
     return (
-        <div className={clsx("col_lg_2_10 mt-1 mr-1")}>
+        <div className={clsx("col_lg_1_10 mt-1 mr-2")}>
             <div className={clsx("row", style.sidebar_container)}>
                 <ul className={style.sidebar_cateList}>
                     <li>
@@ -15,43 +21,66 @@ function Sidebar() {
                     </li>
                     <li className={style.sidebar_item}>
                         <div className={style.sidebar_itemParent}>
-                            <span>
-                                THỊT, CÁ, TRỨNG, HẢI, TextLong, TextLong,
-                                TextLong, TextLong
-                            </span>
+                            <span>Thịt, cá, trứng, hải sản</span>
                         </div>
                         <div className={clsx(style.sidebar_itemChildList)}>
-                            <div className={style.sidebar_itemChild}>
-                                <span>Thịt các loại</span>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("pork")}
+                            >
+                                <span>Thịt heo các loại</span>
                             </div>
-                            <div className={style.sidebar_itemChild}>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("chicken")}
+                            >
+                                <span>Thịt gà các loại</span>
+                            </div>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("fish")}
+                            >
                                 <span>Cá các loại</span>
                             </div>
-                            <div className={style.sidebar_itemChild}>
-                                <span>Trứng</span>
-                            </div>
-                            <div className={style.sidebar_itemChild}>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("sea food")}
+                            >
                                 <span>Hải sản các loại</span>
+                            </div>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("egg")}
+                            >
+                                <span>Trứng các loại</span>
                             </div>
                         </div>
                     </li>
 
                     <li className={style.sidebar_item}>
                         <div className={style.sidebar_itemParent}>
-                            <span>THỊT, CÁ, TRỨNG, HẢI SẢN</span>
+                            <span>Rau, củ, quả</span>
                         </div>
                         <div className={style.sidebar_itemChildList}>
-                            <div className={style.sidebar_itemChild}>
-                                <span>Thịt</span>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("vegetable")}
+                            >
+                                <span>Rau các loại</span>
                             </div>
-                            <div className={style.sidebar_itemChild}>
-                                <span>Cá</span>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() =>
+                                    handleCategoryClick("root vegetable")
+                                }
+                            >
+                                <span>củ các loại</span>
                             </div>
-                            <div className={style.sidebar_itemChild}>
-                                <span>Trứng</span>
-                            </div>
-                            <div className={style.sidebar_itemChild}>
-                                <span>Hải sản</span>
+                            <div
+                                className={style.sidebar_itemChild}
+                                onClick={() => handleCategoryClick("fruit")}
+                            >
+                                <span>quả các loại</span>
                             </div>
                         </div>
                     </li>

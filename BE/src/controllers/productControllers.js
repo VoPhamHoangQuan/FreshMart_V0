@@ -1,6 +1,5 @@
 import ProductsModel from "../models/ProductModel.js";
 import { data } from "../data.js";
-import escapeStringRegexp from "escape-string-regexp";
 
 export const initProducts = async (req, res) => {
     try {

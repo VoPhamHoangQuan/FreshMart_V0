@@ -8,6 +8,7 @@ const initialState = {
     categoryVegetableFilter: "vegetable,root vegetable,fruit",
     error: "",
     loading: "",
+    productListBySearch: [],
 };
 
 const fetchProductList = createAsyncThunk(
@@ -16,6 +17,18 @@ const fetchProductList = createAsyncThunk(
     async (payload, { rejectWithValue }) => {
         try {
             const { data } = await axios.get("/products");
+            return data;
+        } catch (err) {
+            return rejectWithValue(err.message);
+        }
+    }
+);
+
+const fetchProductListBySearch = createAsyncThunk(
+    "homeUser/fetchProductListBySearch",
+    async (payload, { rejectWithValue }) => {
+        try {
+            const { data } = await axios.get(`/products/search/${payload.key}`);
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -45,17 +58,26 @@ const homeUserSlice = createSlice({
                     (el, index) => el._id === state.productList[index]._id
                 );
                 state.productList = unitedProductList;
+                state.productListBySearch = [];
             } else {
                 state.productList.push(...action.payload);
+                state.productListBySearch = [];
             }
         },
-
         [fetchProductList.rejected]: (state, action) => {
             state.loading = false;
             state.error = action.payload;
+        },
+        [fetchProductListBySearch.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [fetchProductListBySearch.fulfilled]: (state, action) => {
+            state.loading = false;
+            state.productListBySearch = action.payload;
+            state.productList = [];
         },
     },
 });
 
 export default homeUserSlice;
-export { fetchProductList };
+export { fetchProductList, fetchProductListBySearch };

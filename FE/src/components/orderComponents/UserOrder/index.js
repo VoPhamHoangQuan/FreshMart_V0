@@ -58,7 +58,7 @@ export default function UserOrder({ orderItem }) {
                 >
                     <i className="fa-solid fa-truck-fast"></i>
                     <span className={style.status}>
-                        {isDelivered ? "Đã vận chuyển" : "Chưa vận chuyển"}{" "}
+                        {isDelivered ? "Đã nhận hàng" : "Đang vận chuyển"}{" "}
                     </span>
                     <span className={style.time}>
                         {deliveriedAt ? deliveriedAt : ""}

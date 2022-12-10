@@ -28,6 +28,15 @@ const schema = mongoose.Schema(
             require: true,
             default: false,
         },
+        image: {
+            type: String,
+            require: false,
+        },
+        isDelete: {
+            type: Boolean,
+            require: true,
+            default: false,
+        },
     },
     {
         timestamps: true,

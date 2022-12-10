@@ -9,14 +9,16 @@
     align-items: center;
     .userImage_container {
         img {
-            width: 5.4rem;
-            margin-right: 1.6rem;
+            height: 6rem;
+            width: 6rem;
+            border-radius: 50%;
         }
     }
     .userInfo_container {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
+        margin-left: 2rem;
         .name {
             font-size: 1.6rem;
             font-weight: 500;
