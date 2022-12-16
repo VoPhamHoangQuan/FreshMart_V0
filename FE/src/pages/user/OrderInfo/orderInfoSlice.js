@@ -59,7 +59,11 @@ const fetchModifyIsPaidOrder = createAsyncThunk(
 const orderInfoSlice = createSlice({
     name: "orderInfo",
     initialState,
-    reducers: {},
+    reducers: {
+        clearMessage: (state, action) => {
+            state.message = "";
+        },
+    },
     extraReducers: {
         [fetchOrderDetail.pending]: (state, action) => {
             state.loading = true;

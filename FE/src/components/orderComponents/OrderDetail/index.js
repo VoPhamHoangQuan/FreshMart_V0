@@ -11,18 +11,20 @@ import {
     fetchModifyIsPaidOrder,
 } from "~/pages/user/OrderInfo/orderInfoSlice";
 import shippingConfirmSlice from "~/pages/user/ShippingConfirm/shippingConfirmSlice";
+import AutoPopUpNotify from "~/components/popupComponents/AutoPopUpNotify";
 
 export default function OrderDetail() {
     const history = useNavigate();
     const dispatch = useDispatch();
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     const { order, VNDRate } = useSelector((state) => state.orderInfo);
+    const { message } = useSelector((state) => state.orderInfo);
+    const [notify, setNotyfy] = useState(false);
     const [fetchData, setFetchData] = useState(false);
     const [isPaid, setIsPaid] = useState(false);
     const [paidTime, setPaidTime] = useState("");
     const [isDelivered, SetIsDelivered] = useState(false);
     const [deliveredTime, setDeliveredTime] = useState("");
-    const [usdValue, setUsdValue] = useState("0");
 
     function forceAuthentication(userInfo) {
         if (!userInfo) {
@@ -57,8 +59,17 @@ export default function OrderDetail() {
         dispatch(fetchVNDRate());
     }, []);
 
+    useEffect(() => {
+        message === "update order success" ? setNotyfy(true) : setNotyfy(false);
+    }, [message]);
+
     return (
         <div className="row mt-1">
+            {notify ? (
+                <AutoPopUpNotify message="Đã thanh toán thành công."></AutoPopUpNotify>
+            ) : (
+                <></>
+            )}
             <div className="col_lg_6_12">
                 <div className={style.container}>
                     <div className={style.block_container}>

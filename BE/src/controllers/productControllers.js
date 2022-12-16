@@ -41,7 +41,7 @@ export const getProductDetail = async (req, res) => {
             path: "commentsId",
             populate: {
                 path: "comments.userId",
-                select: "name gender",
+                select: "name gender image",
             },
         });
         res.status(200).send(productDetail);

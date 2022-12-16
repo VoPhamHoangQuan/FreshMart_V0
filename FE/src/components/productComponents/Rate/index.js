@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import style from "./rateStyle.module.scss";
 import EmptyNotify from "~/components/popupComponents/EmptyNotify";
 import StarRate from "~/components/productComponents/StarRate";
+import defaultUserImage from "~/vendor/image/default_user_image.png";
 import {
     fetchCreateInitComment,
     fetchAddComment,
@@ -79,7 +80,7 @@ function Rate({ data }) {
                             <form id="commentForm">
                                 <label htmlFor="name">Danh xưng</label>
                                 <span className={style.name_container}>
-                                    Quân
+                                    {userInfo.name}
                                 </span>
 
                                 <label htmlFor="comment">Nhận xét</label>
@@ -153,14 +154,36 @@ function Rate({ data }) {
                                     className={style.rate_guestComment}
                                 >
                                     <div className={style.guestComment_title}>
+                                        {el.userId.image ? (
+                                            <div
+                                                className={
+                                                    style.image_container
+                                                }
+                                            >
+                                                <img
+                                                    src={el.userId.image}
+                                                    alt="user"
+                                                ></img>
+                                            </div>
+                                        ) : (
+                                            <div
+                                                className={
+                                                    style.image_container
+                                                }
+                                            >
+                                                <img
+                                                    src={defaultUserImage}
+                                                    alt="user"
+                                                ></img>
+                                            </div>
+                                        )}
                                         <span>{`${
                                             el.userId.gender === "male"
                                                 ? "Anh"
                                                 : "Chị"
                                         } ${el.userId.name}`}</span>
-
-                                        <StarRate rate={el.rate}></StarRate>
                                     </div>
+                                    <StarRate rate={el.rate}></StarRate>
                                     <div className={style.guestComment_content}>
                                         <span>{el.message}</span>
                                     </div>

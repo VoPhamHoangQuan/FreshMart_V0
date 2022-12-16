@@ -1,11 +1,12 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./productDetailStyle.module.scss";
 import Carousel from "~/components/CarouselComponent";
 import { numberWithCommas } from "~/vendor/js";
 import { addToCart } from "~/pages/user/CartInfo/cartInfoSlice.js";
 import StarRate from "~/components/productComponents/StarRate";
+import AutoPopUpNotify from "~/components/popupComponents/AutoPopUpNotify";
 
 function ProductDetail({ data }) {
     const dispatch = useDispatch();
@@ -14,6 +15,8 @@ function ProductDetail({ data }) {
     const [averageRate, setAverageRate] = useState(5);
     const [numRate, setNumRate] = useState(0);
     const [totalRate, settotalRate] = useState(0);
+    const { message } = useSelector((state) => state.cartInfo);
+    const [notify, setNotyfy] = useState(false);
 
     function handleQuantityMinus() {
         productQuantity > 1
@@ -40,6 +43,10 @@ function ProductDetail({ data }) {
     }
 
     useEffect(() => {
+        message === "addToCartSuccess" ? setNotyfy(true) : setNotyfy(false);
+    }, [message]);
+
+    useEffect(() => {
         if (data.commentsId) {
             const comments = data.commentsId.comments;
             let totalRate = 0;
@@ -63,6 +70,11 @@ function ProductDetail({ data }) {
 
     return (
         <>
+            {notify ? (
+                <AutoPopUpNotify message="Đã thêm sản phẩm vào giỏ hàng."></AutoPopUpNotify>
+            ) : (
+                <></>
+            )}
             {/* Product Detail */}
             <div className="row">
                 <div className={clsx(style.product_detail_container, "mt-1")}>
@@ -81,23 +93,50 @@ function ProductDetail({ data }) {
                     <div className={style.product_info}>
                         <span className={style.product_name}>{data.name}</span>
                         <div className={style.product_price}>
-                            <div>
-                                <span className={style.primary_price}>
-                                    {numberWithCommas(
-                                        parseInt(data.primaryPrice)
-                                    )}
-                                    <span>đ</span>
-                                </span>
-                            </div>
-                            <div>
-                                <span className={style.old_price}>
-                                    {numberWithCommas(parseInt(data.oldPrice))}
-                                    <span>đ</span>
-                                </span>
-                            </div>
-                            <div className={style.discount_percent}>
-                                <span>-35%</span>
-                            </div>
+                            {data.primaryPrice < data.oldPrice ? (
+                                <>
+                                    <div>
+                                        <span className={style.primary_price}>
+                                            {numberWithCommas(
+                                                parseInt(data.primaryPrice)
+                                            )}
+                                            <span>đ</span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span className={style.old_price}>
+                                            {numberWithCommas(
+                                                parseInt(data.oldPrice)
+                                            )}
+                                            <span>đ</span>
+                                        </span>
+                                    </div>
+
+                                    <div className={style.discount_percent}>
+                                        <span>
+                                            {`Giảm 
+                                        ${
+                                            (
+                                                1 -
+                                                data.primaryPrice /
+                                                    data.oldPrice
+                                            ).toFixed(2) * 100
+                                        }%`}
+                                        </span>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div>
+                                        <span className={style.primary_price}>
+                                            {numberWithCommas(
+                                                parseInt(data.primaryPrice)
+                                            )}
+                                            <span>đ</span>
+                                        </span>
+                                    </div>
+                                </>
+                            )}
                         </div>
                         <div>
                             <StarRate

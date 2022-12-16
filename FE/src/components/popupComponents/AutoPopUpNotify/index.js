@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./autoPopUpNotify.module.scss";
 import cartInfoSlice from "~/pages/user/CartInfo/cartInfoSlice";
+import orderInfoSlice from "~/pages/user/OrderInfo/orderInfoSlice";
 import checkImage from "~/vendor/image/checked.png";
 
 export default function AutoPopUpNotify(props) {
@@ -12,6 +13,7 @@ export default function AutoPopUpNotify(props) {
     useEffect(() => {
         let timers = setTimeout(() => {
             dispatch(cartInfoSlice.actions.clearMessage());
+            dispatch(orderInfoSlice.actions.clearMessage());
             setShow(true);
         }, "2000");
         return () => {

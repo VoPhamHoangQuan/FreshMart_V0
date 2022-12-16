@@ -56,7 +56,7 @@ export const modifyIsPaidOrder = async (req, res) => {
                 { _id: orderId },
                 { isPaid: req.body.isPaid, paidAt: req.body.paidAt }
             );
-            res.status(200).json({ message: "update order success" });
+            res.status(200).send("update order success");
         } else {
             res.status(404).json({ error: "isPaid orderId invalid" });
         }

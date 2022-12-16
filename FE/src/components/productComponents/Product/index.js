@@ -39,6 +39,21 @@ function Product({ product }) {
     return (
         <div className="col_lg_2_8">
             <div className={clsx("row", style.product)}>
+                {product.primaryPrice < product.oldPrice ? (
+                    <div className={style.discount_container}>
+                        <span>Giảm</span>
+                        <span>
+                            {(
+                                1 -
+                                product.primaryPrice / product.oldPrice
+                            ).toFixed(2) * 100}
+                            %
+                        </span>
+                    </div>
+                ) : (
+                    <></>
+                )}
+
                 <Link
                     className={clsx(style.productLink, "product_Link")}
                     to={`/product/${product._id}`}
@@ -49,16 +64,29 @@ function Product({ product }) {
                         alt="prduct img"
                     />
                     <span className={style.productName}>{product.name}</span>
-                    <div className={style.productPriceContainer}>
-                        <span className={style.productPrimaryPrice}>
-                            {numberWithCommas(parseInt(product.primaryPrice))}
-                            <span>đ</span>
-                        </span>
-                        <span className={style.productOldPrice}>
-                            {numberWithCommas(parseInt(product.oldPrice))}
-                            <span>đ</span>
-                        </span>
-                    </div>
+                    {product.primaryPrice < product.oldPrice ? (
+                        <div className={style.productPriceContainer}>
+                            <span className={style.productPrimaryPrice}>
+                                {numberWithCommas(
+                                    parseInt(product.primaryPrice)
+                                )}
+                                <span>đ</span>
+                            </span>
+                            <span className={style.productOldPrice}>
+                                {numberWithCommas(parseInt(product.oldPrice))}
+                                <span>đ</span>
+                            </span>
+                        </div>
+                    ) : (
+                        <div className={style.productPriceContainer}>
+                            <span className={style.productPrimaryPrice}>
+                                {numberWithCommas(
+                                    parseInt(product.primaryPrice)
+                                )}
+                                <span>đ</span>
+                            </span>
+                        </div>
+                    )}
                     <div className={style.productRateContainer}>
                         <StarRate
                             rate={averageRate}
