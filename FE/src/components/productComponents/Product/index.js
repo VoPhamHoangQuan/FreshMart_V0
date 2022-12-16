@@ -1,19 +1,41 @@
 import style from "./productStyle.module.scss";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { numberWithCommas } from "~/vendor/js";
-import { useDispatch } from "react-redux";
 import { addToCart } from "~/pages/user/CartInfo/cartInfoSlice.js";
+import StarRate from "~/components/productComponents/StarRate";
 
 function Product({ product }) {
     const dispatch = useDispatch();
     const outOfStockBtn = product.stock <= 0;
+    const [averageRate, setAverageRate] = useState(5);
+    const [numRate, setNumRate] = useState(0);
+    const [totalRate, settotalRate] = useState(0);
     async function handleAddToCart() {
         if (product.stock > 0) {
             await dispatch(addToCart({ productId: product._id, buyQty: 1 }));
         }
     }
 
+    useEffect(() => {
+        if (product.commentsId) {
+            const comments = product.commentsId.comments;
+            let totalRate = 0;
+            if (comments) {
+                comments.map((el) => {
+                    setNumRate((rev) => rev + 1);
+                    totalRate += el.rate;
+                });
+                settotalRate(totalRate);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        setAverageRate((totalRate / numRate).toFixed(1));
+    }, [totalRate, numRate]);
     return (
         <div className="col_lg_2_8">
             <div className={clsx("row", style.product)}>
@@ -36,6 +58,12 @@ function Product({ product }) {
                             {numberWithCommas(parseInt(product.oldPrice))}
                             <span>đ</span>
                         </span>
+                    </div>
+                    <div className={style.productRateContainer}>
+                        <StarRate
+                            rate={averageRate}
+                            numPreview={numRate}
+                        ></StarRate>
                     </div>
                 </Link>
                 <div className={style.addToCartBtn}>

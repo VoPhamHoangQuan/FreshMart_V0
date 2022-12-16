@@ -1,22 +1,19 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import style from "./productDetailStyle.module.scss";
 import Carousel from "~/components/CarouselComponent";
 import { numberWithCommas } from "~/vendor/js";
 import { addToCart } from "~/pages/user/CartInfo/cartInfoSlice.js";
+import StarRate from "~/components/productComponents/StarRate";
 
 function ProductDetail({ data }) {
     const dispatch = useDispatch();
     const [inStock, setInStock] = useState(true);
     const [productQuantity, setProductQuantity] = useState(1);
-
-    useEffect(() => {
-        if (data.stock === 0) {
-            setInStock(false);
-        }
-    }, [data]);
+    const [averageRate, setAverageRate] = useState(5);
+    const [numRate, setNumRate] = useState(0);
+    const [totalRate, settotalRate] = useState(0);
 
     function handleQuantityMinus() {
         productQuantity > 1
@@ -41,6 +38,28 @@ function ProductDetail({ data }) {
             addToCart({ productId: data._id, buyQty: productQuantity })
         );
     }
+
+    useEffect(() => {
+        if (data.commentsId) {
+            const comments = data.commentsId.comments;
+            let totalRate = 0;
+            comments.map((el) => {
+                setNumRate((rev) => rev + 1);
+                totalRate += el.rate;
+            });
+            settotalRate(totalRate);
+        }
+    }, [data.commentsId]);
+
+    useEffect(() => {
+        setAverageRate((totalRate / numRate).toFixed(1));
+    }, [totalRate]);
+
+    useEffect(() => {
+        if (data.stock === 0) {
+            setInStock(false);
+        }
+    }, [data]);
 
     return (
         <>
@@ -79,6 +98,12 @@ function ProductDetail({ data }) {
                             <div className={style.discount_percent}>
                                 <span>-35%</span>
                             </div>
+                        </div>
+                        <div>
+                            <StarRate
+                                rate={averageRate}
+                                numPreview={numRate}
+                            ></StarRate>
                         </div>
                         <div className={style.product_sliceInfo}>
                             <div className={style.sliceInfo}>

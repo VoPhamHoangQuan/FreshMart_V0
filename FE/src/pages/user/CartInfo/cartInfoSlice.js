@@ -5,6 +5,7 @@ import axios from "axios";
 const initialState = {
     loading: "",
     error: "",
+    message: "",
     cartItems: [],
 };
 
@@ -54,6 +55,9 @@ const cartInfoSlice = createSlice({
         clearCart: (state, action) => {
             state.cartItems = [];
         },
+        clearMessage: (state, action) => {
+            state.message = "";
+        },
     },
     extraReducers: {
         [addToCart.pending]: (state, action) => {
@@ -75,7 +79,7 @@ const cartInfoSlice = createSlice({
                 state.cartItems.push(action.payload);
             }
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-            alert("Thêm sản phẩm vào giỏ thành công");
+            state.message = "addToCartSuccess";
         },
         [addToCart.rejected]: (state, action) => {
             state.loading = false;

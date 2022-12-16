@@ -139,6 +139,11 @@ body {
     padding: 1rem 2rem;
     border-radius: 0.6rem;
     opacity: 0.8;
+    &:hover {
+        background-color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        animation: none;
+    }
 }
 
 .primary_btn_style_2 {

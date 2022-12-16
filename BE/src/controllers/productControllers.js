@@ -13,7 +13,9 @@ export const initProducts = async (req, res) => {
 
 export const getProducts = async (req, res) => {
     try {
-        const productList = await ProductsModel.find();
+        const productList = await ProductsModel.find({
+            isDeleted: false,
+        }).populate("commentsId");
         res.status(200).send(productList);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -33,7 +35,15 @@ export const addProduct = async (req, res) => {
 
 export const getProductDetail = async (req, res) => {
     try {
-        const productDetail = await ProductsModel.findById(req.params.id);
+        const productDetail = await ProductsModel.findById(
+            req.params.id
+        ).populate({
+            path: "commentsId",
+            populate: {
+                path: "comments.userId",
+                select: "name gender",
+            },
+        });
         res.status(200).send(productDetail);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -58,14 +68,21 @@ export const getProductListBySearchName = async (req, res) => {
     try {
         const searchString = req.params.key;
         const listProduct = await ProductsModel.find({
-            $or: [
-                { name: { $regex: searchString } },
-                { category: { $regex: searchString } },
-                { description: { $regex: searchString } },
-                { origin: { $regex: searchString } },
-                { brand: { $regex: searchString } },
+            $and: [
+                {
+                    $or: [
+                        { name: { $regex: searchString } },
+                        { category: { $regex: searchString } },
+                        { description: { $regex: searchString } },
+                        { origin: { $regex: searchString } },
+                        { brand: { $regex: searchString } },
+                    ],
+                },
+                {
+                    isDeleted: false,
+                },
             ],
-        });
+        }).populate("commentsId");
         res.status(200).send(listProduct);
     } catch (err) {
         res.satus(500).json({ error: err });

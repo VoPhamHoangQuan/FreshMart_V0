@@ -12,12 +12,15 @@ import Loading from "~/components/Loading";
 import Error from "~/components/popupComponents/Error";
 import Product from "~/components/productComponents/Product";
 import Carousel from "~/components/CarouselComponent";
+import AutoPopUpNotify from "~/components/popupComponents/AutoPopUpNotify";
 
 function HomeUser() {
     const dispatch = useDispatch();
     const { productListBySearch, error, loading, productList } = useSelector(
         (state) => state.homeUser
     );
+    const { message } = useSelector((state) => state.cartInfo);
+    const [notify, setNotyfy] = useState(false);
     const [currentMeatProductNum, setCurrentMeatProductNum] = useState(8);
     const [currentVegetableProductNum, setCurrentVegetableProductNum] =
         useState(8);
@@ -38,6 +41,10 @@ function HomeUser() {
         fetchProductListData();
     }, [dispatch]);
 
+    useEffect(() => {
+        message === "addToCartSuccess" ? setNotyfy(true) : setNotyfy(false);
+    }, [message]);
+
     function handleCategoryMeatClick(e) {
         dispatch(homeUserSlice.actions.setCategoryMeatFilter(e.target.value));
     }
@@ -50,6 +57,11 @@ function HomeUser() {
 
     return (
         <div className={clsx("col_lg_8_10")}>
+            {notify ? (
+                <AutoPopUpNotify message="Đã thêm sản phẩm vào giỏ hàng."></AutoPopUpNotify>
+            ) : (
+                <></>
+            )}
             {loading ? (
                 <Loading></Loading>
             ) : error !== "" ? (

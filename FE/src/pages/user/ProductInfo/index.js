@@ -5,7 +5,7 @@ import Rate from "~/components/productComponents/Rate";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchProductDetail } from "./productInfoSlice";
+import productDetailSlice, { fetchProductDetail } from "./productInfoSlice";
 import Loading from "~/components/Loading";
 import Error from "~/components/popupComponents/Error";
 import BreadCrumb from "~/components/BreadCrumb";
@@ -17,13 +17,17 @@ function ProductInfo() {
         (state) => state.productInfo
     );
     useEffect(() => {
+        dispatch(productDetailSlice.actions.clearMessage());
+    }, []);
+
+    useEffect(() => {
         const fetchProductDetailData = async () => {
             await dispatch(fetchProductDetail(params.id));
         };
         fetchProductDetailData();
     }, [dispatch, params.id]);
     return (
-        <div className="row">
+        <div className="row mb-1">
             <div className="col_lg_8_12">
                 {loading ? (
                     <Loading></Loading>
@@ -41,7 +45,7 @@ function ProductInfo() {
                         />
 
                         <ProductDetail data={productDetail}></ProductDetail>
-                        <Rate></Rate>
+                        <Rate data={productDetail}></Rate>
                     </>
                 )}
             </div>

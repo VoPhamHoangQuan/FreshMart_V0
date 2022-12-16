@@ -20,7 +20,8 @@ export default function OrderDetail() {
     const [fetchData, setFetchData] = useState(false);
     const [isPaid, setIsPaid] = useState(false);
     const [paidTime, setPaidTime] = useState("");
-    const [isDelivery, SetIsDelivery] = useState(false);
+    const [isDelivered, SetIsDelivered] = useState(false);
+    const [deliveredTime, setDeliveredTime] = useState("");
     const [usdValue, setUsdValue] = useState("0");
 
     function forceAuthentication(userInfo) {
@@ -43,8 +44,11 @@ export default function OrderDetail() {
     useEffect(() => {
         setFetchData(true);
         order.isPaid === true ? setIsPaid(true) : setIsPaid(false);
-        order.isDelivery === true ? SetIsDelivery(true) : SetIsDelivery(false);
+        order.isDelivered === true
+            ? SetIsDelivered(true)
+            : SetIsDelivered(false);
         setPaidTime(new Date(order.paidAt).toLocaleString());
+        setDeliveredTime(new Date(order.deliveredAt).toLocaleString());
     }, [order]);
 
     useEffect(() => {
@@ -107,11 +111,11 @@ export default function OrderDetail() {
                                 {fetchData ? order.shippingInfo.address : ""}
                             </span>
                         </div>
-                        {isDelivery ? (
+                        {isDelivered ? (
                             <div className={style.status_container}>
                                 <span className={style.title}>Trạng thái:</span>
                                 <span className={style.content}>
-                                    Đã nhận hàng
+                                    Đã nhận hàng {`(${deliveredTime})`}
                                 </span>
                             </div>
                         ) : (
@@ -299,7 +303,9 @@ export default function OrderDetail() {
                         </span>
                     </div>
                     <>
-                        {fetchData && !isPaid ? (
+                        {fetchData &&
+                        !isPaid &&
+                        order.paymentMethod !== "cash" ? (
                             <PayPalScriptProvider
                                 options={{
                                     "client-id": `${process.env.REACT_APP_PAYPAL_CLIENT_ID}`,

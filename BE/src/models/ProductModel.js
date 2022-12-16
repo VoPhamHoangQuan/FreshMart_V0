@@ -55,6 +55,17 @@ const schema = new mongoose.Schema(
             require: true,
             default: 0,
         },
+        isDeleted: {
+            type: Boolean,
+            require: true,
+            default: false,
+        },
+        commentsId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comments",
+            require: false,
+            default: null,
+        },
     },
     { timestamps: true }
 );

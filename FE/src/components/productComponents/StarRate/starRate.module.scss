@@ -1,0 +1,12 @@
+.container {
+    font-size: 1.4rem;
+    .rated {
+        color: rgb(236, 236, 40);
+    }
+    .unrated {
+        color: #d5d5d5;
+    }
+    span {
+        color: var(--font-color);
+    }
+}

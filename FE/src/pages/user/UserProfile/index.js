@@ -163,7 +163,7 @@ export default function UserProfile() {
                             <div className={style.image_container}>
                                 <img
                                     src={
-                                        imageObject === ""
+                                        !imageFile
                                             ? defaultUserImage
                                             : imageObject
                                     }
