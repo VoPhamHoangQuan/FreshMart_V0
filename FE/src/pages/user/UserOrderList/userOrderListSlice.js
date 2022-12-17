@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
     loading: false,
     error: "",
+    message: "",
     userOrderList: [],
 };
 
@@ -121,10 +122,55 @@ const fetchUserOrderListDelivered = createAsyncThunk(
     }
 );
 
+const fetchUserOrderCancel = createAsyncThunk(
+    "userOrderList/userOrderCancel",
+    async (payload, { rejectWithValue }) => {
+        try {
+            const { data } = await axios.post(
+                `/orders/orderCancel/${payload.orderId}`,
+                {
+                    isDeleted: payload.isDeleted,
+                }
+            );
+            return data;
+        } catch (err) {
+            return rejectWithValue({ error: err.message });
+        }
+    }
+);
+
+const fetchUserOrderListCanceled = createAsyncThunk(
+    "userOrderList/getUserOrderListCanceled",
+    async (payload, { rejectWithValue }) => {
+        try {
+            if (payload.token) {
+                const header = {
+                    authorization: `Bearer ${payload.token}`,
+                };
+                const { data } = await axios.get(
+                    "/orders/userIsDeletedOrderList",
+                    {
+                        headers: header,
+                    }
+                );
+                return data;
+            } else {
+                return rejectWithValue({ error: "inavlid token" });
+            }
+        } catch (err) {
+            return rejectWithValue({ error: err.message });
+        }
+    }
+);
+
 const userOrderListSlice = createSlice({
     name: "userOrderList",
     initialState,
-    reducers: {},
+    reducers: {
+        clearMessage: (state, action) => {
+            state.message = "";
+        },
+    },
     extraReducers: {
         [fetchUserOrderList.pending]: (state, action) => {
             state.loading = true;
@@ -161,6 +207,20 @@ const userOrderListSlice = createSlice({
             state.loading = false;
             state.userOrderList = action.payload;
         },
+        [fetchUserOrderCancel.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [fetchUserOrderCancel.fulfilled]: (state, action) => {
+            state.loading = false;
+            state.message = action.payload;
+        },
+        [fetchUserOrderListCanceled.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [fetchUserOrderListCanceled.fulfilled]: (state, action) => {
+            state.loading = false;
+            state.userOrderList = action.payload;
+        },
     },
 });
 
@@ -171,4 +231,6 @@ export {
     fetchUserOrderListNotPay,
     fetchUserOrderListNotDelivery,
     fetchUserOrderListDelivered,
+    fetchUserOrderCancel,
+    fetchUserOrderListCanceled,
 };

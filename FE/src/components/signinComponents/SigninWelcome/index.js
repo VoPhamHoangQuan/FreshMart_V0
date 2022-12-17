@@ -113,7 +113,7 @@ function SigninWelcome() {
                     Tiếp tục
                 </button>
             </form>
-            <div className={style.social_container}>
+            {/* <div className={style.social_container}>
                 <div className={style.social_note}>
                     <span>Hoặc sử dụng tài khoản</span>
                 </div>
@@ -133,7 +133,7 @@ function SigninWelcome() {
                         <span>Google</span>
                     </Link>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

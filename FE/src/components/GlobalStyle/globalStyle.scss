@@ -175,6 +175,35 @@ body {
     }
 }
 
+.primary_btn_style_3 {
+    background-color: #fff;
+    color: var(--active-color);
+    font-size: 1.6rem;
+    font-weight: 600;
+    border: 1px solid var(--active-color);
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+    &:hover {
+        background-color: var(--active-color);
+        color: #fff;
+        border-color: var(--active-color);
+        cursor: pointer;
+        animation: addToCartBtn3__hover linear 0.3s;
+    }
+
+    @keyframes addToCartBtn3__hover {
+        from {
+            background-color: #fff;
+            color: var(--active-color);
+        }
+        to {
+            background-color: var(--active-color);
+            color: #fff;
+        }
+    }
+}
+
 @keyframes fontToPrimary {
     from {
         color: var(--font-color);

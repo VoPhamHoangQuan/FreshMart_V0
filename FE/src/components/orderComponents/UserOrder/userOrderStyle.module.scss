@@ -114,29 +114,35 @@
 .totalPrice_container {
     display: flex;
     align-items: center;
-    i {
-        font-size: 1.8rem;
-        color: var(--primary-color);
-        margin-right: 1rem;
-    }
-    span:nth-child(2) {
-        font-size: 1.6rem;
-        color: var(--font-color);
-        margin-right: 1rem;
-    }
-    span:nth-child(3) {
-        font-size: 2.4rem;
-        color: var(--active-color);
-    }
-    span:nth-child(4) {
-        color: var(--active-color);
-        font-size: 1.6rem;
-        position: relative;
-        top: -0.4rem;
+    width: 100%;
+    justify-content: space-between;
+    .totalPrice {
+        i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+        span:nth-child(2) {
+            font-size: 1.6rem;
+            color: var(--font-color);
+            margin-right: 1rem;
+        }
+        span:nth-child(3) {
+            font-size: 2.4rem;
+            color: var(--active-color);
+        }
+        span:nth-child(4) {
+            color: var(--active-color);
+            font-size: 1.6rem;
+            position: relative;
+            top: -0.4rem;
+        }
     }
 }
 .controlBtns_container {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
     margin-top: 4rem;
     .controlBtn {

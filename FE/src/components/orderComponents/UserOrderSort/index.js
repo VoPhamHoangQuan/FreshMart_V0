@@ -8,6 +8,7 @@ import {
     fetchUserOrderListNotPay,
     fetchUserOrderListNotDelivery,
     fetchUserOrderListDelivered,
+    fetchUserOrderListCanceled,
 } from "~/pages/user/UserOrderList/userOrderListSlice.js";
 
 export default function UserOrderSort({ userInfo }) {
@@ -29,6 +30,9 @@ export default function UserOrderSort({ userInfo }) {
     function handleOrderDeliveredClick() {
         dispatch(fetchUserOrderListDelivered({ token: token }));
     }
+    function handleOrderCanceledClick() {
+        dispatch(fetchUserOrderListCanceled({ token: token }));
+    }
 
     useEffect(() => {
         focus.current.focus();
@@ -40,31 +44,42 @@ export default function UserOrderSort({ userInfo }) {
                 className={style.controler_contain}
                 onClick={() => handleOrderClick()}
             >
-                Tất cả
+                Tất Cả
             </button>
+            <i></i>
             <button
                 className={style.controler_contain}
                 onClick={() => handleOrderNotPayClick()}
             >
-                Chưa thanh toán
+                Chưa Thanh Toán
             </button>
+            <i></i>
             <button
                 className={style.controler_contain}
                 onClick={() => handleOrderPaidClick()}
             >
-                Đã thanh toán
+                Đã Thanh Toán
             </button>
+            <i></i>
             <button
                 className={style.controler_contain}
                 onClick={() => handleOrderNotDeliveryClick()}
             >
-                Đang vận chuyển
+                Đang Vận Chuyển
             </button>
+            <i></i>
             <button
                 className={style.controler_contain}
                 onClick={() => handleOrderDeliveredClick()}
             >
-                Đã Nhận hàng
+                Đã Nhận Hàng
+            </button>
+            <i></i>
+            <button
+                className={style.controler_contain}
+                onClick={() => handleOrderCanceledClick()}
+            >
+                Đã Hủy
             </button>
         </div>
     );

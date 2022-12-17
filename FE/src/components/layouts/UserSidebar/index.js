@@ -71,13 +71,13 @@ export default function UserSidebar() {
                         ></i>
                         <span>Đơn đã đặt</span>
                     </Link>
-                    <Link to="/" className={style.control_container}>
+                    {/* <Link to="/" className={style.control_container}>
                         <i
                             style={{ color: "#0346ae" }}
                             className="fa-solid fa-shield-halved"
                         ></i>
                         <span>Đổi mật khẩu</span>
-                    </Link>
+                    </Link> */}
                     <Link
                         to="#"
                         onClick={handleLogoutClick}

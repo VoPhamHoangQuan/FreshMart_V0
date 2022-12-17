@@ -4,7 +4,9 @@ import {
     createOrder,
     getOrderById,
     modifyIsPaidOrder,
+    modifyIsDeletedOrder,
     getOrdersByUserId,
+    getOrdersIsDeletedByUserId,
     getPaidOrdersByUserId,
     getNotPayOrdersByUserId,
     getNotDeliveryOrdersByUserId,
@@ -16,6 +18,7 @@ orderRouter.post("/", isAuth, createOrder);
 orderRouter.get("/order/:orderId", getOrderById);
 orderRouter.post("/order/:orderId", modifyIsPaidOrder);
 orderRouter.get("/userOrderList", isAuth, getOrdersByUserId);
+orderRouter.get("/userIsDeletedOrderList", isAuth, getOrdersIsDeletedByUserId);
 orderRouter.get("/userOrderListPaid", isAuth, getPaidOrdersByUserId);
 orderRouter.get("/userOrderListNotPay", isAuth, getNotPayOrdersByUserId);
 orderRouter.get(
@@ -24,5 +27,6 @@ orderRouter.get(
     getNotDeliveryOrdersByUserId
 );
 orderRouter.get("/userOrderListDelivered", isAuth, getDeliveredOrdersByUserId);
+orderRouter.post("/orderCancel/:orderId", modifyIsDeletedOrder);
 
 export default orderRouter;

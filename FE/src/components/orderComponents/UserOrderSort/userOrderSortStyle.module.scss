@@ -1,15 +1,28 @@
 .container {
     background-color: #fff;
     display: flex;
-    justify-content: flex-start;
+    align-items: flex-end;
+    height: 7.6rem;
+    i {
+        border: 1px solid var(--border-color);
+        height: 60%;
+        margin: auto;
+    }
 }
 .controler_contain {
     padding: 2rem 2.8rem;
     background-color: #fff;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 500;
     flex: 1;
     &:focus-within {
         border-bottom: 2px solid var(--active-color);
+        color: var(--active-color);
+    }
+    &:hover {
+        cursor: pointer;
+        border-bottom: 2px solid var(--active-color);
+        color: var(--active-color);
     }
 }

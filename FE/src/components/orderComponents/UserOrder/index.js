@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import clsx from "clsx";
 import style from "./userOrderStyle.module.scss";
 import { numberWithCommas } from "~/vendor/js";
-import { useNavigate } from "react-router-dom";
-import clsx from "clsx";
+import {
+    fetchUserOrderCancel,
+    fetchUserOrderList,
+} from "~/pages/user/UserOrderList/userOrderListSlice";
+
 export default function UserOrder({ orderItem }) {
     const history = useNavigate();
+    const dispatch = useDispatch();
     const [isPaid, setIsPaid] = useState(false);
     const [paidAt, setPaidAt] = useState(null);
     const [isDelivered, setIsDelivered] = useState(false);
+    const [canceledAt, setCanceledAt] = useState(null);
     const [deliveriedAt, setDeliveredAt] = useState(null);
     const [cartItems, setCartItems] = useState([]);
     const [orderTotalPrice, setOrderTotalPrice] = useState(0);
 
     function handleOrderDetail() {
         history(`/orderInfo/${orderItem._id}`);
+    }
+
+    async function handleOrderCancel() {
+        await dispatch(
+            fetchUserOrderCancel({ orderId: orderItem._id, isDeleted: true })
+        );
     }
 
     useEffect(() => {
@@ -27,6 +41,9 @@ export default function UserOrder({ orderItem }) {
         orderItem.deliveredAt
             ? setDeliveredAt(new Date(orderItem.deliveredAt).toLocaleString())
             : setDeliveredAt(null);
+        orderItem.isDeleted === true
+            ? setCanceledAt(new Date(orderItem.updatedAt).toLocaleString())
+            : setCanceledAt(null);
         orderItem.orderItems
             ? setCartItems(orderItem.orderItems)
             : setCartItems([]);
@@ -99,23 +116,66 @@ export default function UserOrder({ orderItem }) {
             </div>
             <div className={style.footer_container}>
                 <div className={style.totalPrice_container}>
-                    <i className="fa-solid fa-sack-dollar"></i>
-                    <span>Tổng số tiền: </span>
-                    <span>{numberWithCommas(orderTotalPrice)}</span>
-                    <span>đ</span>
+                    {orderItem.isDeleted ? (
+                        <div
+                            className={clsx(style.shipping_container, {
+                                [style.shipping_container__inActive]:
+                                    !isDelivered,
+                            })}
+                        >
+                            <i className="fa-solid fa-ban"></i>
+                            <span className={style.status}>
+                                Đã hủy đơn hàng
+                            </span>
+                            <span className={style.time}>
+                                {canceledAt ? canceledAt : ""}
+                            </span>
+                        </div>
+                    ) : (
+                        <span></span>
+                    )}
+                    <div className={style.totalPrice}>
+                        <i className="fa-solid fa-sack-dollar"></i>
+                        <span>Tổng số tiền: </span>
+                        <span>{numberWithCommas(orderTotalPrice)}</span>
+                        <span>đ</span>
+                    </div>
                 </div>
                 <div className={style.controlBtns_container}>
-                    <div className={style.controlBtn}>
-                        <button className="primary_btn_style_1">Mua lại</button>
-                    </div>
-                    <div
-                        className={style.controlBtn}
-                        onClick={handleOrderDetail}
-                    >
-                        <button className="primary_btn_style_2">
-                            Xem chi tiết
-                        </button>
-                    </div>
+                    {orderItem.isPaid ||
+                    orderItem.isDelivered ||
+                    orderItem.isDeleted ? (
+                        <span></span>
+                    ) : (
+                        <div
+                            className={style.controlBtn}
+                            onClick={handleOrderCancel}
+                        >
+                            <button className="primary_btn_style_3">
+                                Hủy đơn
+                            </button>
+                        </div>
+                    )}
+                    {orderItem.isDeleted ? (
+                        <span></span>
+                    ) : (
+                        <>
+                            {/* <div className={style.controlBtn}>
+                            <button className="primary_btn_style_1">
+                                Mua lại
+                            </button>
+                        </div> */}
+
+                            <div
+                                className={style.controlBtn}
+                                onClick={handleOrderDetail}
+                            >
+                                <button className="primary_btn_style_1">
+                                    Xem chi tiết
+                                </button>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>

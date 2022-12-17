@@ -65,6 +65,50 @@ export const modifyIsPaidOrder = async (req, res) => {
     }
 };
 
+export const modifyIsDeletedOrder = async (req, res) => {
+    try {
+        if (req.params.orderId && req.body.isDeleted) {
+            const orderId = req.params.orderId;
+            await OrderModel.findOneAndUpdate(
+                { _id: orderId },
+                { isDeleted: req.body.isDeleted }
+            );
+            res.status(200).send("update isDeleted order success");
+        } else {
+            res.status(404).json({ error: "isDeleted orderId invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
+
+export const getOrdersIsDeletedByUserId = async (req, res) => {
+    try {
+        if (req.userInfo.id) {
+            const userId = req.userInfo.id;
+            const orderList = await OrderModel.find({
+                userInfo: userId,
+                isDeleted: true,
+            })
+                .populate({
+                    path: "orderItems",
+                    populate: {
+                        path: "productId",
+                        select: "name image primaryPrice",
+                    },
+                })
+                .sort({
+                    createdAt: -1,
+                });
+            res.status(200).json(orderList);
+        } else {
+            res.status(404).json({ error: "getOrdersByUserId userId Invalid" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+};
+
 export const getOrdersByUserId = async (req, res) => {
     try {
         if (req.userInfo.id) {
