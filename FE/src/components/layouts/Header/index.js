@@ -38,8 +38,10 @@ function Header() {
     function handleSearchClick() {
         if (searchString !== "") {
             dispatch(fetchProductListBySearch({ key: searchString }));
+            history("/");
         } else {
             dispatch(fetchProductList());
+            history("/");
         }
     }
 

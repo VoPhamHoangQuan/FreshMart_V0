@@ -19,6 +19,8 @@ export default function UserOrderList() {
         ? JSON.parse(localStorage.getItem("userInfo"))
         : null;
 
+    const [empty, setEmpty] = useState(false);
+
     function forceAuthentication(userInfo) {
         if (!userInfo) {
             history("/signin");
@@ -51,7 +53,7 @@ export default function UserOrderList() {
             <UserOrderSort userInfo={userInfo}></UserOrderSort>
             {loading ? (
                 <Loading></Loading>
-            ) : userOrderList ? (
+            ) : userOrderList && userOrderList.length !== 0 ? (
                 userOrderList.map((el, id) => (
                     <div key={id} className="row">
                         <UserOrder orderItem={el}></UserOrder>

@@ -21,6 +21,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        box-shadow: -0.4rem 0.8rem 0.4rem var(--shadow-color);
         &::before {
             content: "";
             position: absolute;
