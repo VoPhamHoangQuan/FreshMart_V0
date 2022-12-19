@@ -60,6 +60,7 @@ export const signinUser = async (req, res) => {
                     gender: existedUser.gender,
                     phone: existedUser.phone,
                     isAdmin: existedUser.isAdmin,
+                    image: existedUser.image,
                     isDelete: existedUser.isDelete,
                     token: jwtGenerator(existedUser),
                 });

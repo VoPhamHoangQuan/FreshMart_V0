@@ -142,258 +142,273 @@ export default function ShippingDetails() {
 
     return (
         <div className="row mt-1 mb-1">
-            <div className="col_lg_6_12">
-                <div className={style.container}>
-                    <div className={style.info_container}>
-                        <span className={style.title}>
-                            1. Thông tin người mua hàng
-                        </span>
-                        <div className={style.radioType_container}>
-                            <div className={style.gender}>
-                                {userInfo.gender === "male" ? (
-                                    <img
-                                        src={checkIcon}
-                                        alt="checked"
-                                        className={style.genderIcon}
-                                    />
-                                ) : (
-                                    <img
-                                        src={uncheckIcon}
-                                        alt="checked"
-                                        className={style.genderIcon}
-                                    />
-                                )}
-                                <label>Anh</label>
+            {userInfo ? (
+                <div className="col_lg_6_12">
+                    <div className={style.container}>
+                        <div className={style.info_container}>
+                            <span className={style.title}>
+                                1. Thông tin người mua hàng
+                            </span>
+                            <div className={style.radioType_container}>
+                                <div className={style.gender}>
+                                    {userInfo && userInfo.gender === "male" ? (
+                                        <img
+                                            src={checkIcon}
+                                            alt="checked"
+                                            className={style.genderIcon}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={uncheckIcon}
+                                            alt="checked"
+                                            className={style.genderIcon}
+                                        />
+                                    )}
+                                    <label>Anh</label>
+                                </div>
+                                <div className={style.gender}>
+                                    {userInfo &&
+                                    userInfo.gender === "female" ? (
+                                        <img
+                                            src={checkIcon}
+                                            alt="checked"
+                                            className={style.genderIcon}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={uncheckIcon}
+                                            alt="checked"
+                                            className={style.genderIcon}
+                                        />
+                                    )}
+
+                                    <label>Chị</label>
+                                </div>
                             </div>
-                            <div className={style.gender}>
-                                {userInfo.gender === "female" ? (
-                                    <img
-                                        src={checkIcon}
-                                        alt="checked"
-                                        className={style.genderIcon}
-                                    />
-                                ) : (
-                                    <img
-                                        src={uncheckIcon}
-                                        alt="checked"
-                                        className={style.genderIcon}
-                                    />
-                                )}
-
-                                <label>Chị</label>
-                            </div>
-                        </div>
-                        <div
-                            className={clsx(
-                                style.input_container,
-                                style.input_container__inactive
-                            )}
-                        >
-                            <span>Họ và tên</span>
-                            <span>{userInfo.name}</span>
-                        </div>
-                        <div className={style.input_container}>
-                            <span>
-                                Số điện thoại giao hàng (mặc định sử dụng số
-                                điện thoại tài khoản nếu để trống mục này)
-                            </span>
-                            <input
-                                ref={phoneNumberInput}
-                                type="tel"
-                                maxLength={10}
-                                placeholder={reverseFormatPhoneNumber(
-                                    userInfo.phone
-                                )}
-                                value={shippingPhone}
-                                onChange={(e) => handlePhoneNumberChange(e)}
-                                onKeyPress={(e) => handlePhoneNumberKeyPress(e)}
-                            />
-                        </div>
-                    </div>
-
-                    <div className={style.info_container}>
-                        <span className={style.title}>
-                            2. Địa chỉ nhận hàng
-                        </span>
-                        <span className={style.subTitle}>
-                            Tỉnh thành <i style={{ color: "red" }}>*</i>
-                        </span>
-                        <select
-                            className={style.selectInput}
-                            onChange={(e) => handleProviceSelected(e)}
-                        >
-                            {VNProvince ? (
-                                VNProvince.map((el, id) => (
-                                    <option
-                                        key={id}
-                                        value={[el.ProvinceID, el.ProvinceName]}
-                                    >
-                                        {el.ProvinceName}
-                                    </option>
-                                ))
-                            ) : (
-                                <></>
-                            )}
-                        </select>
-                        <span className={style.subTitle}>
-                            Quận <i style={{ color: "red" }}>*</i>
-                        </span>
-                        <select
-                            className={style.selectInput}
-                            onChange={(e) => handleDistrictSelected(e)}
-                        >
-                            {VNDistrict ? (
-                                VNDistrict.map((el, id) => (
-                                    <option
-                                        key={id}
-                                        value={[el.DistrictID, el.DistrictName]}
-                                    >
-                                        {el.DistrictName}
-                                    </option>
-                                ))
-                            ) : (
-                                <></>
-                            )}
-                        </select>
-                        <span className={style.subTitle}>
-                            Phường <i style={{ color: "red" }}>*</i>
-                        </span>
-                        <select
-                            className={style.selectInput}
-                            onChange={(e) => handleWardSelected(e)}
-                        >
-                            {VNWard ? (
-                                VNWard.map((el, id) => (
-                                    <option
-                                        key={id}
-                                        value={[el.wardCode, el.WardName]}
-                                    >
-                                        {el.WardName}
-                                    </option>
-                                ))
-                            ) : (
-                                <></>
-                            )}
-                        </select>
-                        <span className={style.subTitle}>
-                            Địa chỉ <i style={{ color: "red" }}>*</i>
-                        </span>
-                        <input
-                            className={style.typeInput}
-                            name="streetName"
-                            placeholder="Nhập số nhà và tên đường"
-                            value={streetInfo}
-                            onChange={(e) => handleStreetInput(e)}
-                        />
-                    </div>
-
-                    <form className={style.info_container}>
-                        <span className={style.title}>
-                            3. Phương thức thanh toán
-                        </span>
-                        <div className={style.checkBtn_container}>
-                            <label
-                                htmlFor="paypal"
-                                className={style.paymentIcon_container}
-                            >
-                                <img src={paypalIcon} alt="paypal" />
-                                <span>PayPal</span>
-                            </label>
-                            <input
-                                name="paymentMethod"
-                                type="radio"
-                                id="paypal"
-                                value="paypal"
-                                onChange={(e) => handlePaymentChange(e)}
-                            />
-                        </div>
-
-                        {/* <div className={style.checkBtn_container}>
-                            <label
-                                htmlFor="momo"
-                                className={style.paymentIcon_container}
-                            >
-                                <img src={momoIcon} alt="momo" />
-                                <span>MoMo</span>
-                            </label>
-                            <input
-                                name="paymentMethod"
-                                type="radio"
-                                id="momo"
-                                value="momo"
-                                onChange={(e) => handlePaymentChange(e)}
-                            />
-                        </div> */}
-
-                        <div className={style.checkBtn_container}>
-                            <label
-                                htmlFor="cash"
-                                className={style.paymentIcon_container}
-                            >
-                                <img src={cashIcon} alt="cash" />
-                                <span>Thanh toán khi nhận hàng</span>
-                            </label>
-                            <input
-                                name="paymentMethod"
-                                type="radio"
-                                id="cash"
-                                value="cash"
-                                onChange={(e) => handlePaymentChange(e)}
-                            />
-                        </div>
-                    </form>
-
-                    <div className={style.price_summary}>
-                        <div className={style.total_price_container}>
-                            <span>Tiền hàng</span>
-                            <span className={style.price}>
-                                {numberWithCommas(totalProductPrice)}
-                                <span>đ</span>
-                            </span>
-                        </div>
-                        <div className={style.total_price_container}>
-                            <span>Phí giao hàng</span>
-                            <span className={style.price}>
-                                {numberWithCommas(
-                                    shippingFee.total ? shippingFee.total : 0
-                                )}
-                                <span>đ</span>
-                            </span>
-                        </div>
-                        <div className={style.total_price_container}>
-                            <span>Tổng chi phí</span>
-                            <span className={style.price}>
-                                {numberWithCommas(
-                                    totalProductPrice +
-                                        (shippingFee.total
-                                            ? shippingFee.total
-                                            : 0)
-                                )}
-                                <span>đ</span>
-                            </span>
-                        </div>
-                        <div className={style.continue_btn_container}>
-                            <button
-                                disabled={!validateInfo ? true : false}
+                            <div
                                 className={clsx(
-                                    { primary_btn_style_1: validateInfo },
-                                    {
-                                        primary_btn_style_1__inActive:
-                                            !validateInfo,
-                                    }
+                                    style.input_container,
+                                    style.input_container__inactive
                                 )}
-                                onClick={handleSubmit}
                             >
-                                Tiếp tục
-                            </button>
-                            <Link className={style.return_link} to="/cart">
-                                <i className="fa-solid fa-arrow-left" />
-                                Quay lại giỏ hàng
-                            </Link>
+                                <span>Họ và tên</span>
+                                <span>{userInfo.name}</span>
+                            </div>
+                            <div className={style.input_container}>
+                                <span>
+                                    Số điện thoại giao hàng (mặc định sử dụng số
+                                    điện thoại tài khoản nếu để trống mục này)
+                                </span>
+                                <input
+                                    ref={phoneNumberInput}
+                                    type="tel"
+                                    maxLength={10}
+                                    placeholder={reverseFormatPhoneNumber(
+                                        userInfo.phone
+                                    )}
+                                    value={shippingPhone}
+                                    onChange={(e) => handlePhoneNumberChange(e)}
+                                    onKeyPress={(e) =>
+                                        handlePhoneNumberKeyPress(e)
+                                    }
+                                />
+                            </div>
+                        </div>
+
+                        <div className={style.info_container}>
+                            <span className={style.title}>
+                                2. Địa chỉ nhận hàng
+                            </span>
+                            <span className={style.subTitle}>
+                                Tỉnh thành <i style={{ color: "red" }}>*</i>
+                            </span>
+                            <select
+                                className={style.selectInput}
+                                onChange={(e) => handleProviceSelected(e)}
+                            >
+                                {VNProvince ? (
+                                    VNProvince.map((el, id) => (
+                                        <option
+                                            key={id}
+                                            value={[
+                                                el.ProvinceID,
+                                                el.ProvinceName,
+                                            ]}
+                                        >
+                                            {el.ProvinceName}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <></>
+                                )}
+                            </select>
+                            <span className={style.subTitle}>
+                                Quận <i style={{ color: "red" }}>*</i>
+                            </span>
+                            <select
+                                className={style.selectInput}
+                                onChange={(e) => handleDistrictSelected(e)}
+                            >
+                                {VNDistrict ? (
+                                    VNDistrict.map((el, id) => (
+                                        <option
+                                            key={id}
+                                            value={[
+                                                el.DistrictID,
+                                                el.DistrictName,
+                                            ]}
+                                        >
+                                            {el.DistrictName}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <></>
+                                )}
+                            </select>
+                            <span className={style.subTitle}>
+                                Phường <i style={{ color: "red" }}>*</i>
+                            </span>
+                            <select
+                                className={style.selectInput}
+                                onChange={(e) => handleWardSelected(e)}
+                            >
+                                {VNWard ? (
+                                    VNWard.map((el, id) => (
+                                        <option
+                                            key={id}
+                                            value={[el.wardCode, el.WardName]}
+                                        >
+                                            {el.WardName}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <></>
+                                )}
+                            </select>
+                            <span className={style.subTitle}>
+                                Địa chỉ <i style={{ color: "red" }}>*</i>
+                            </span>
+                            <input
+                                className={style.typeInput}
+                                name="streetName"
+                                placeholder="Nhập số nhà và tên đường"
+                                value={streetInfo}
+                                onChange={(e) => handleStreetInput(e)}
+                            />
+                        </div>
+
+                        <form className={style.info_container}>
+                            <span className={style.title}>
+                                3. Phương thức thanh toán
+                            </span>
+                            <div className={style.checkBtn_container}>
+                                <label
+                                    htmlFor="paypal"
+                                    className={style.paymentIcon_container}
+                                >
+                                    <img src={paypalIcon} alt="paypal" />
+                                    <span>PayPal</span>
+                                </label>
+                                <input
+                                    name="paymentMethod"
+                                    type="radio"
+                                    id="paypal"
+                                    value="paypal"
+                                    onChange={(e) => handlePaymentChange(e)}
+                                />
+                            </div>
+
+                            {/* <div className={style.checkBtn_container}>
+                                <label
+                                    htmlFor="momo"
+                                    className={style.paymentIcon_container}
+                                >
+                                    <img src={momoIcon} alt="momo" />
+                                    <span>MoMo</span>
+                                </label>
+                                <input
+                                    name="paymentMethod"
+                                    type="radio"
+                                    id="momo"
+                                    value="momo"
+                                    onChange={(e) => handlePaymentChange(e)}
+                                />
+                            </div> */}
+
+                            <div className={style.checkBtn_container}>
+                                <label
+                                    htmlFor="cash"
+                                    className={style.paymentIcon_container}
+                                >
+                                    <img src={cashIcon} alt="cash" />
+                                    <span>Thanh toán khi nhận hàng</span>
+                                </label>
+                                <input
+                                    name="paymentMethod"
+                                    type="radio"
+                                    id="cash"
+                                    value="cash"
+                                    onChange={(e) => handlePaymentChange(e)}
+                                />
+                            </div>
+                        </form>
+
+                        <div className={style.price_summary}>
+                            <div className={style.total_price_container}>
+                                <span>Tiền hàng</span>
+                                <span className={style.price}>
+                                    {numberWithCommas(totalProductPrice)}
+                                    <span>đ</span>
+                                </span>
+                            </div>
+                            <div className={style.total_price_container}>
+                                <span>Phí giao hàng</span>
+                                <span className={style.price}>
+                                    {numberWithCommas(
+                                        shippingFee.total
+                                            ? shippingFee.total
+                                            : 0
+                                    )}
+                                    <span>đ</span>
+                                </span>
+                            </div>
+                            <div className={style.total_price_container}>
+                                <span>Tổng chi phí</span>
+                                <span className={style.price}>
+                                    {numberWithCommas(
+                                        totalProductPrice +
+                                            (shippingFee.total
+                                                ? shippingFee.total
+                                                : 0)
+                                    )}
+                                    <span>đ</span>
+                                </span>
+                            </div>
+                            <div className={style.continue_btn_container}>
+                                <button
+                                    disabled={!validateInfo ? true : false}
+                                    className={clsx(
+                                        { primary_btn_style_1: validateInfo },
+                                        {
+                                            primary_btn_style_1__inActive:
+                                                !validateInfo,
+                                        }
+                                    )}
+                                    onClick={handleSubmit}
+                                >
+                                    Tiếp tục
+                                </button>
+                                <Link className={style.return_link} to="/cart">
+                                    <i className="fa-solid fa-arrow-left" />
+                                    Quay lại giỏ hàng
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            ) : (
+                <></>
+            )}
         </div>
     );
 }
