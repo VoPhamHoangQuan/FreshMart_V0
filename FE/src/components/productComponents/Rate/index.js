@@ -73,8 +73,8 @@ function Rate({ data }) {
             <div className={style.rate_title}>
                 <span>Đánh giá sản phẩm</span>
             </div>
-            {userInfo ? (
-                <>
+            <>
+                {userInfo ? (
                     <div className={style.rate_form}>
                         {!alreadyComment && !notPaid ? (
                             <form id="commentForm">
@@ -146,57 +146,48 @@ function Rate({ data }) {
                             </span>
                         )}
                     </div>
-                    <div className={style.rate_guestComment_container}>
-                        {commentsValid === true ? (
-                            productDetail.commentsId.comments.map((el, key) => (
-                                <div
-                                    key={key}
-                                    className={style.rate_guestComment}
-                                >
-                                    <div className={style.guestComment_title}>
-                                        {el.userId.image ? (
-                                            <div
-                                                className={
-                                                    style.image_container
-                                                }
-                                            >
-                                                <img
-                                                    src={el.userId.image}
-                                                    alt="user"
-                                                ></img>
-                                            </div>
-                                        ) : (
-                                            <div
-                                                className={
-                                                    style.image_container
-                                                }
-                                            >
-                                                <img
-                                                    src={defaultUserImage}
-                                                    alt="user"
-                                                ></img>
-                                            </div>
-                                        )}
-                                        <span>{`${
-                                            el.userId.gender === "male"
-                                                ? "Anh"
-                                                : "Chị"
-                                        } ${el.userId.name}`}</span>
-                                    </div>
-                                    <StarRate rate={el.rate}></StarRate>
-                                    <div className={style.guestComment_content}>
-                                        <span>{el.message}</span>
-                                    </div>
+                ) : (
+                    <span className={style.alreadyComment_message}>
+                        Quý khách hãy đăng nhập và mua hàng để đánh giá nha.
+                    </span>
+                )}
+                <div className={style.rate_guestComment_container}>
+                    {commentsValid === true ? (
+                        productDetail.commentsId.comments.map((el, key) => (
+                            <div key={key} className={style.rate_guestComment}>
+                                <div className={style.guestComment_title}>
+                                    {el.userId.image ? (
+                                        <div className={style.image_container}>
+                                            <img
+                                                src={el.userId.image}
+                                                alt="user"
+                                            ></img>
+                                        </div>
+                                    ) : (
+                                        <div className={style.image_container}>
+                                            <img
+                                                src={defaultUserImage}
+                                                alt="user"
+                                            ></img>
+                                        </div>
+                                    )}
+                                    <span>{`${
+                                        el.userId.gender === "male"
+                                            ? "Anh"
+                                            : "Chị"
+                                    } ${el.userId.name}`}</span>
                                 </div>
-                            ))
-                        ) : (
-                            <EmptyNotify message="Chưa có comment nào"></EmptyNotify>
-                        )}
-                    </div>
-                </>
-            ) : (
-                <EmptyNotify message="Đăng nhập để comment"></EmptyNotify>
-            )}
+                                <StarRate rate={el.rate}></StarRate>
+                                <div className={style.guestComment_content}>
+                                    <span>{el.message}</span>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <EmptyNotify message="Chưa có comment nào"></EmptyNotify>
+                    )}
+                </div>
+            </>
         </div>
     );
 }
