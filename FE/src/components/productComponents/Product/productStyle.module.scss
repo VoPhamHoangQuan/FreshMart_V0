@@ -46,8 +46,14 @@
         flex-direction: column;
         align-items: center;
 
+        .productImage_container {
+            height: 18rem;
+            display: flex;
+            align-items: center;
+        }
         .productImg {
             width: 18rem;
+            max-height: 18rem;
             margin-bottom: 2rem;
             border: 1px solid var(--border-color);
             box-shadow: 0 0 1rem var(--shadow-color);

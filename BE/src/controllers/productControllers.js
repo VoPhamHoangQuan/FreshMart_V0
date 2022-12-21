@@ -1,10 +1,11 @@
 import ProductsModel from "../models/ProductModel.js";
 import { data } from "../data.js";
+import { productData } from "../extraProductdata.js";
 
 export const initProducts = async (req, res) => {
     try {
-        await ProductsModel.remove();
-        const products = await ProductsModel.insertMany(data.products);
+        // await ProductsModel.remove();
+        const products = await ProductsModel.insertMany(productData.products);
         res.status(200).json(products);
     } catch (err) {
         res.status(500).json({ error: err });

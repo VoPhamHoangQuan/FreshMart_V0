@@ -44,9 +44,11 @@ function Product({ product }) {
                         <span>Giảm</span>
                         <span>
                             {(
-                                1 -
-                                product.primaryPrice / product.oldPrice
-                            ).toFixed(2) * 100}
+                                (
+                                    1 -
+                                    product.primaryPrice / product.oldPrice
+                                ).toFixed(2) * 100
+                            ).toFixed(0)}
                             %
                         </span>
                     </div>
@@ -58,11 +60,13 @@ function Product({ product }) {
                     className={clsx(style.productLink, "product_Link")}
                     to={`/product/${product._id}`}
                 >
-                    <img
-                        className={style.productImg}
-                        src={product.image}
-                        alt="prduct img"
-                    />
+                    <div className={style.productImage_container}>
+                        <img
+                            className={style.productImg}
+                            src={product.image}
+                            alt="prduct img"
+                        />
+                    </div>
                     <span className={style.productName}>{product.name}</span>
                     {product.primaryPrice < product.oldPrice ? (
                         <div className={style.productPriceContainer}>

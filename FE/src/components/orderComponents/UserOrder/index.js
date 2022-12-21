@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import style from "./userOrderStyle.module.scss";
@@ -84,34 +84,43 @@ export default function UserOrder({ orderItem }) {
             </div>
             <div className={style.body_container}>
                 {cartItems.map((el, id) => (
-                    <div key={id} className={style.item_container}>
-                        <div className={style.productInfo_container}>
-                            <img src={el.productId.image} alt="product"></img>
-                            <div className={style.detail_container}>
-                                <span className={style.name}>
-                                    {el.productId.name}
-                                </span>
-                                <span className={style.price}>
-                                    {" "}
+                    <Link
+                        key={id}
+                        className={style.product_link}
+                        to={`/product/${el.productId._id}`}
+                    >
+                        <div className={style.item_container}>
+                            <div className={style.productInfo_container}>
+                                <img
+                                    src={el.productId.image}
+                                    alt="product"
+                                ></img>
+                                <div className={style.detail_container}>
+                                    <span className={style.name}>
+                                        {el.productId.name}
+                                    </span>
+                                    <span className={style.price}>
+                                        {" "}
+                                        {numberWithCommas(
+                                            el.productId.primaryPrice
+                                        )}
+                                        <span>đ</span>
+                                    </span>
+                                    <span className={style.quantity}>
+                                        x{el.qty}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className={style.productTotalPrice_container}>
+                                <span>
                                     {numberWithCommas(
-                                        el.productId.primaryPrice
+                                        el.qty * el.productId.primaryPrice
                                     )}
-                                    <span>đ</span>
                                 </span>
-                                <span className={style.quantity}>
-                                    x{el.qty}
-                                </span>
+                                <span>đ</span>
                             </div>
                         </div>
-                        <div className={style.productTotalPrice_container}>
-                            <span>
-                                {numberWithCommas(
-                                    el.qty * el.productId.primaryPrice
-                                )}
-                            </span>
-                            <span>đ</span>
-                        </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
             <div className={style.footer_container}>

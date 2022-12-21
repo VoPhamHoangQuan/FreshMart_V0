@@ -115,13 +115,13 @@ function ProductDetail({ data }) {
                                     <div className={style.discount_percent}>
                                         <span>
                                             {`Giảm 
-                                        ${
+                                        ${(
                                             (
                                                 1 -
                                                 data.primaryPrice /
                                                     data.oldPrice
                                             ).toFixed(2) * 100
-                                        }%`}
+                                        ).toFixed(0)}%`}
                                         </span>
                                     </div>
                                 </>

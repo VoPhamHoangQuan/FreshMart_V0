@@ -43,7 +43,11 @@
     padding: 0rem 2rem;
     border-top: 2px solid var(--border-color);
     border-bottom: 2px solid var(--border-color);
+    .product_link {
+        text-decoration: none;
+    }
 }
+
 .item_container {
     display: flex;
     align-items: center;
