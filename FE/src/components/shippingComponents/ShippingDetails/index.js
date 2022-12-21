@@ -135,10 +135,18 @@ export default function ShippingDetails() {
         districtInfo &&
         wardInfo !== {} &&
         streetInfo !== "" &&
-        paymentMethod != ""
+        paymentMethod != "" &&
+        shippingPhone !== ""
             ? setValidateInfo(true)
             : setValidateInfo(false);
-    }, [provinceInfo, districtInfo, wardInfo, streetInfo, paymentMethod]);
+    }, [
+        provinceInfo,
+        districtInfo,
+        wardInfo,
+        streetInfo,
+        paymentMethod,
+        shippingPhone,
+    ]);
 
     return (
         <div className="row mt-1 mb-1">
