@@ -73,12 +73,12 @@ function HomeUser() {
                         <Carousel
                             carouselItem={[
                                 {
-                                    img: "https://cdn.tgdd.vn/bachhoaxanh/banners/5599/banh-flan-0809202293520.png",
-                                    link: "https://www.bachhoaxanh.com",
+                                    img: "https://cdn.tgdd.vn/bachhoaxanh/banners/5599/fresh-khuyen-mai-gia-soc-2010202222524.jpg",
+                                    link: "#",
                                 },
                                 {
-                                    img: "https://cdn.tgdd.vn/bachhoaxanh/banners/5599/banh-keo-giam-den-50-11092022103.jpg",
-                                    link: "https://opencart.dostguru.com/FD04/upbasket_02/index.php?route=common/home",
+                                    img: "https://cdn.tgdd.vn/bachhoaxanh/banners/5599/ngay-chay-21122022112655.jpg",
+                                    link: "#",
                                 },
                             ]}
                             showThumbs={false}
