@@ -1,0 +1,617 @@
+[{
+  "_id": {
+    "$oid": "639de070a9dc1ffc9f86bc75"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "639de070a9dc1ffc9f86bc76"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166d"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "639de070a9dc1ffc9f86bc77"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Tân Xuân, Huyện Vân Hồ, Tỉnh/Thành Phố Sơn La",
+    "shippingPhone": "09422666661",
+    "shippingPrice": 44000,
+    "itemsPrice": 14500
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": true,
+  "isDelivered": true,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666020592616"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671678339567"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671293171060"
+    }
+  },
+  "deliveredAt": {
+    "$date": {
+      "$numberLong": "1671678339560"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639de081a9dc1ffc9f86bc91"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "639de081a9dc1ffc9f86bc92"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166e"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "639de081a9dc1ffc9f86bc93"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Tân Xuân, Huyện Vân Hồ, Tỉnh/Thành Phố Sơn La",
+    "shippingPhone": "",
+    "shippingPrice": 44000,
+    "itemsPrice": 18000
+  },
+  "paymentMethod": "cash",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": false,
+  "isDelivered": false,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666020609864"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671294334537"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639dfa8a34da2a768a50d04a"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "639dfa8a34da2a768a50d04b"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb61670"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "639dfa8a34da2a768a50d04c"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Tà Bhinh, Huyện Nam Giang, Tỉnh/Thành Phố Quảng Nam",
+    "shippingPhone": "",
+    "shippingPrice": 44000,
+    "itemsPrice": 18000
+  },
+  "paymentMethod": "cash",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": false,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671297674799"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671297674799"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1a908589e21649084c4ce"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a1a908589e21649084c4cf"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Bình Long, Huyện Hòa An, Tỉnh/Thành Phố Cao Bằng",
+    "shippingPhone": "",
+    "shippingPrice": 44000,
+    "itemsPrice": 8000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259cf"
+  },
+  "isPaid": true,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671538952184"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671538971360"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671538971345"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a1a936589e21649084c4e2"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166d"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a1a936589e21649084c4e3"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Đại Đồng Thành, Huyện Thuận Thành, Tỉnh/Thành Phố Bắc Ninh",
+    "shippingPhone": "",
+    "shippingPrice": 34000,
+    "itemsPrice": 6500
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259cf"
+  },
+  "isPaid": false,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671538998802"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671538998802"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a2f4af47c1b7798f8aca6b"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166e"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a2f4af47c1b7798f8aca6c"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Song Liễu, Huyện Thuận Thành, Tỉnh/Thành Phố Bắc Ninh",
+    "shippingPhone": "+84964884624",
+    "shippingPrice": 34000,
+    "itemsPrice": 10000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": false,
+  "isDelivered": true,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671623855896"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671689243531"
+    }
+  },
+  "__v": 0,
+  "deliveredAt": {
+    "$date": {
+      "$numberLong": "1671689243529"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a31f81318778079d661a35"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a31f81318778079d661a36"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Rạng Đông, Huyện Tuần Giáo, Tỉnh/Thành Phố Điện Biên",
+    "shippingPhone": "+84964884624",
+    "shippingPrice": 44000,
+    "itemsPrice": 8000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": true,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671634817524"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671634836842"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671634836506"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a322e3318778079d661a8e"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "63a32264a49f7e99209ee83b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a322e3318778079d661a8f"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "63a321f9a49f7e99209ee838"
+      },
+      "qty": 2,
+      "_id": {
+        "$oid": "63a322e3318778079d661a90"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Tiên Sơn, Huyện Việt Yên, Tỉnh/Thành Phố Bắc Giang",
+    "shippingPhone": "+84123243242",
+    "shippingPrice": 34000,
+    "itemsPrice": 14000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": true,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671635683071"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671635713510"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671635713498"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32fef2d86df8eb8dc34d8"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "63a326463947b0129162a05f"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a32fef2d86df8eb8dc34d9"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Trí Quả, Huyện Thuận Thành, Tỉnh/Thành Phố Bắc Ninh",
+    "shippingPhone": "+84657567657",
+    "shippingPrice": 34000,
+    "itemsPrice": 20000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "isPaid": true,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671639023073"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639043473"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671639043459"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a3cce4b1f53f9011a0852c"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a3cce4b1f53f9011a0852d"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã An Bình, Huyện Lạc Thủy, Tỉnh/Thành Phố Hòa Bình",
+    "shippingPhone": "+84746472346",
+    "shippingPrice": 44000,
+    "itemsPrice": 150000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259cf"
+  },
+  "isPaid": true,
+  "isDelivered": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671679204867"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671679238174"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671679238160"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a3cd24b1f53f9011a08554"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a3cd24b1f53f9011a08555"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Xã Khánh Lộc, Huyện Trần Văn Thời, Tỉnh/Thành Phố Cà Mau",
+    "shippingPhone": "+84343243243",
+    "shippingPrice": 36500,
+    "itemsPrice": 150000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "638f7a5d228deb0a70c259cf"
+  },
+  "isPaid": false,
+  "isDelivered": true,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671679268323"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671680675906"
+    }
+  },
+  "__v": 0,
+  "deliveredAt": {
+    "$date": {
+      "$numberLong": "1671680675906"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a3cf06b1f53f9011a085ac"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a3cf06b1f53f9011a085ad"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166d"
+      },
+      "qty": 2,
+      "_id": {
+        "$oid": "63a3cf06b1f53f9011a085ae"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Phường Thạnh Lộc, Quận 12, Tỉnh/Thành Phố Hồ Chí Minh",
+    "shippingPhone": "+84964884634",
+    "shippingPrice": 21000,
+    "itemsPrice": 210000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "63a3ce9cb1f53f9011a0859b"
+  },
+  "isPaid": true,
+  "isDelivered": true,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671679750388"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671680618650"
+    }
+  },
+  "__v": 0,
+  "paidAt": {
+    "$date": {
+      "$numberLong": "1671679939404"
+    }
+  },
+  "deliveredAt": {
+    "$date": {
+      "$numberLong": "1671680618650"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a3cf04b1f53f9011a085a6"
+  },
+  "orderItems": [
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166b"
+      },
+      "qty": 1,
+      "_id": {
+        "$oid": "63a3cf04b1f53f9011a085a7"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "639b065dad84e408ccb6166d"
+      },
+      "qty": 2,
+      "_id": {
+        "$oid": "63a3cf04b1f53f9011a085a8"
+      }
+    }
+  ],
+  "shippingInfo": {
+    "address": "12, Phường Thạnh Lộc, Quận 12, Tỉnh/Thành Phố Hồ Chí Minh",
+    "shippingPhone": "+84964884634",
+    "shippingPrice": 21000,
+    "itemsPrice": 210000
+  },
+  "paymentMethod": "paypal",
+  "userInfo": {
+    "$oid": "63a3ce9cb1f53f9011a0859b"
+  },
+  "isPaid": false,
+  "isDelivered": false,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671679748944"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671680012225"
+    }
+  },
+  "__v": 0
+}]

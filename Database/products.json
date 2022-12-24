@@ -1,0 +1,924 @@
+[{
+  "_id": {
+    "$oid": "639b065dad84e408ccb6166b"
+  },
+  "name": "Gà ta nguyên con C.P gói 1.1kg -1.5kg /con",
+  "description": "Thịt heo cốt lết thường được cắt kèm với phần đầu xương sườn nên mọi người hay gọi là sườn cốt lết, là nguyên liệu quen thuộc của mọi nhà. Cốt lết heo nhập khẩu đông lạnh với phương pháp cấp đông hiện đại, giúp lưu giữ hương vị tự nhiên, mang đến những món ăn ngon cho gia đình.",
+  "category": "chicken",
+  "image": "https://cdn.tgdd.vn/Products/Images/8790/286856/bhx/ga-ta-nguyen-con-cp-goi-11kg-15kg-con-202208251429276036_300x300.jpg",
+  "primaryPrice": 150000,
+  "oldPrice": 160000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 88,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "639b68ee415240867550ed43"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093787"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671679750064"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb6166c"
+  },
+  "name": "Ba rọi heo nhập khẩu đông lạnh túi500g",
+  "description": "test description",
+  "category": "pork",
+  "image": "https://cdn.tgdd.vn/Products/Images/8781/275806/bhx/ba-roi-heo-nhap-khau-dong-lanh-tui-500g-202208262010209457_300x300.jpg",
+  "primaryPrice": 20000,
+  "oldPrice": 25000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2022",
+  "stock": 0,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "639b686e1bae33e263a4f372"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093788"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671605546624"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb6166d"
+  },
+  "name": "Cá hú nguyên con làm sạch túi 0.8kg - 1.1kg",
+  "description": "test description",
+  "category": "fish",
+  "image": "https://cdn.tgdd.vn/Products/Images/8782/290278/bhx/ca-hu-nguyen-con-lam-sach-tui-08kg-11kg-202209111018392990_300x300.jpg",
+  "primaryPrice": 30000,
+  "oldPrice": 35000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 1,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "639b427991aef520bd821188"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093789"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671679750382"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb6166e"
+  },
+  "name": "Cua thịt nguyên con hộp 2 con (230g - 300g/con)",
+  "description": "test description",
+  "category": "sea food",
+  "image": "https://cdn.tgdd.vn/Products/Images/8782/286032/bhx/cua-thit-nguyen-con-hop-2-con-230g-300g-con-202209141546409863_300x300.jpg",
+  "primaryPrice": 100000,
+  "oldPrice": 100000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 4,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "639b6218c3a185b94318f63d"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093791"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671623855864"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb6166f"
+  },
+  "name": "Hộp 10 trứng vịt xanh 4KFarm",
+  "description": "test description",
+  "category": "egg",
+  "image": "https://cdn.tgdd.vn/Products/Images/8783/234812/bhx/hop-10-trung-vit-xanh-4kfarm-202208201621446312_300x300.jpg",
+  "primaryPrice": 22000,
+  "oldPrice": 22000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 8,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "639b6ba87c85cc55f303c1db"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093791"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671217472357"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb61670"
+  },
+  "name": "Cải ngọt baby gói 300g",
+  "description": "test description",
+  "category": "vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8820/223332/bhx/rau-mong-toi-baby-goi-300g-202208121333198212_300x300.jpg",
+  "primaryPrice": 10000,
+  "oldPrice": 12500,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 8,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a3d0f6b1f53f9011a08670"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093791"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671680246754"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb61671"
+  },
+  "name": "Rau thơm các loại gói 200g",
+  "description": "test description",
+  "category": "vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8820/271489/bhx/rau-thom-cac-loai-goi-200g-202208121129577363_300x300.jpg",
+  "primaryPrice": 5000,
+  "oldPrice": 6000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "639f58f28e18a0cae7089ec4"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093792"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671387378816"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb61672"
+  },
+  "name": "Tỏi tím Trung Quốc túi 300g (7-9 củ)",
+  "description": "test description",
+  "category": "root vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8820/271480/bhx/toi-tim-trung-quoc-tui-300g-7-9-cu-202208150924321382_300x300.jpg",
+  "primaryPrice": 10000,
+  "oldPrice": 10000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 2,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a330592d86df8eb8dc3587"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093792"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639129989"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb61673"
+  },
+  "name": "Cà rốt Đà Lạt túi 500g (2 - 5 củ)",
+  "description": "test description",
+  "category": "root vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8785/271572/bhx/ca-rot-da-lat-tui-500g-2-5-cu-202209060821580003_300x300.jpg",
+  "primaryPrice": 10000,
+  "oldPrice": 10000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 2,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a330622d86df8eb8dc3599"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093792"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639138512"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb61674"
+  },
+  "name": "Táo Gala mini New Zealand hộp 1kg (8-11 trái)",
+  "description": "test description",
+  "category": "fruit",
+  "image": "https://cdn.tgdd.vn/Products/Images/8788/233534/bhx/tao-gala-mini-nhap-khau-new-zealand-hop-1kg-8-11-trai-202205111943495592_300x300.jpg",
+  "primaryPrice": 10000,
+  "oldPrice": 10000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 2,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a3306a2d86df8eb8dc35ab"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093793"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639146542"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639b065dad84e408ccb61675"
+  },
+  "name": "Chuối sứ nải từ 1.5kg trở lên (giao ngẫu nhiên sống hoặc chín)",
+  "description": "test description",
+  "category": "fruit",
+  "image": "https://cdn.tgdd.vn/Products/Images/8788/270353/bhx/chuoi-su-nai-tu-15kg-tro-len-giao-ngau-nhien-song-hoac-chin-202205130923311441_300x300.jpg",
+  "primaryPrice": 20000,
+  "oldPrice": 22000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 0,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a330772d86df8eb8dc35bd"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671104093793"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671678495819"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "639c7383e7b14562664cd46f"
+  },
+  "name": "bánh tráng",
+  "description": "Bánh tráng nè",
+  "category": "pork",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fast-food-management-f0f8f.appspot.com/o/2_fSRUMLT3YlQ3_1671197567423.jpg?alt=media",
+  "primaryPrice": 10000,
+  "oldPrice": 10000,
+  "origin": "Việt Nam",
+  "brand": "Thuocsi",
+  "weight": "1",
+  "exp": "16/12/2022",
+  "stock": 8,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671197571551"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671253806389"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639c7684e7b14562664cd4a8"
+  },
+  "name": "BÁNH TRÁNG",
+  "description": "Bánh tráng",
+  "category": "pork",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fast-food-management-f0f8f.appspot.com/o/292444757_4988824934560420_8450423312788092799_n_1671198337803.jpg?alt=media",
+  "primaryPrice": 12000,
+  "oldPrice": 12000,
+  "origin": "Việt Nam",
+  "brand": "Thuocsi",
+  "weight": "1",
+  "exp": "14/12/2022",
+  "stock": 0,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671198340852"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671255500955"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a321f9a49f7e99209ee838"
+  },
+  "name": "Phúc test sea food",
+  "description": "Test thui nhe",
+  "category": "sea food",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fast-food-management-f0f8f.appspot.com/o/favicon_1671635447414.png?alt=media",
+  "primaryPrice": 1000,
+  "oldPrice": 1000,
+  "origin": "Việt Nam",
+  "brand": "Thuocsi",
+  "weight": "10",
+  "exp": "21/12/2022",
+  "stock": 8,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671635449670"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671636599842"
+    }
+  },
+  "__v": 0,
+  "commentsId": {
+    "$oid": "63a326773947b0129162a067"
+  }
+},{
+  "_id": {
+    "$oid": "63a32264a49f7e99209ee83b"
+  },
+  "name": "Phúc test root",
+  "description": "Test nè má",
+  "category": "root vegetable",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fast-food-management-f0f8f.appspot.com/o/favicon_1671635554692.png?alt=media",
+  "primaryPrice": 12000,
+  "oldPrice": 12000,
+  "origin": "Việt Nam",
+  "brand": "Thuocsi",
+  "weight": "10",
+  "exp": "21/12/2022",
+  "stock": 11,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671635556357"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671635682749"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a326463947b0129162a05f"
+  },
+  "name": "Má đùi gà C.P khay 500g (3-5 cái)",
+  "description": "Má đùi gà CP đạt các tiêu chuẩn về an toàn thực phẩm, đảm bảo về chất lượng, độ tươi và ngon, xuất xứ rõ ràng. Thích hợp để nấu món má đùi gà nướng sa tế, gà rán, má đùi gà rim tiêu,... Có thể dùng điện thoại quét code QR trên sản phẩm để kiểm tra nguồn góc.",
+  "category": "chicken",
+  "image": "https://cdn.tgdd.vn/Products/Images/8790/226883/bhx/ma-dui-ga-cp-khay-500g-3-5-cai-202202111508100551.jpg",
+  "primaryPrice": 20000,
+  "oldPrice": 37000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 9,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a330132d86df8eb8dc34f9"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671636550391"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639059326"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a326463947b0129162a060"
+  },
+  "name": "Cánh gà giữa nhập khẩu đông lạnh túi 500g (9-11 miếng)",
+  "description": "Cánh giữa gà nhập khẩu tươi ngon, nhiều thịt, giàu dinh dưỡng thường dùng để chiên với nước mắm hoặc hấp hành. Cánh gà giữa nhập khẩu đông lạnh với phương pháp cấp đông hiện đại, giúp lưu giữ hương vị tự nhiên, mang đến những món ăn ngon cho gia đình.",
+  "category": "chicken",
+  "image": "https://cdn.tgdd.vn/Products/Images/8790/297340/bhx/canh-ga-giua-nhap-khau-dong-lanh-tui-500g-9-11-mieng-202211220857256717.jpg",
+  "primaryPrice": 52500,
+  "oldPrice": 65500,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a330372d86df8eb8dc353d"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671636550393"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639095300"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3427"
+  },
+  "name": "Gà dai nguyên con nhập khẩu đông lạnh túi 1.2kg",
+  "description": "Gà dai nhập khẩu được đóng gói và bảo quản theo những tiêu chuẩn nghiêm ngặt về vệ sinh và an toàn thực phẩm. Gà dai nguyên con nhập khẩu đông lạnh vẫn giữ được phần thịt gà dai, thơm, ngọt nên thường dùng để hầm nấu canh, súp hoặc cháo, giúp người dùng bảo quản lâu hơn.",
+  "category": "chicken",
+  "image": "https://cdn.tgdd.vn/Products/Images/8790/297314/bhx/ga-dai-nguyen-con-nhap-khau-dong-lanh-tui-12kg-202211100923418469.jpg",
+  "primaryPrice": 78000,
+  "oldPrice": 97000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": {
+    "$oid": "63a330462d86df8eb8dc355b"
+  },
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104921"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671639110867"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3428"
+  },
+  "name": "Ba rọi heo C.P khay 500g",
+  "description": "Cánh giữa gà nhập khẩu tươi ngon, nhiều thịt, giàu dinh dưỡng thường dùng để chiên với nước mắm hoặc hấp hành. Cánh gà giữa nhập khẩu đông lạnh với phương pháp cấp đông hiện đại, giúp lưu giữ hương vị tự nhiên, mang đến những món ăn ngon cho gia đình.",
+  "category": "pork",
+  "image": "https://cdn.tgdd.vn/Products/Images/8790/297340/bhx/canh-ga-giua-nhap-khau-dong-lanh-tui-500g-9-11-mieng-202211220857256717.jpg",
+  "primaryPrice": 94000,
+  "oldPrice": 100000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104923"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104923"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3429"
+  },
+  "name": "Cốt lết heo G khay 300g (4-6 miếng )",
+  "description": "Cốt lết heo có xương G được đóng gói và bảo quản đạt các tiêu chuẩn về an toàn toàn thực phẩm. Bản thịt heo to, vân mỡ mỏng tạo độ béo nhẹ cho miếng thịt nên thường dùng để nướng, ram, chiên áp chảo.... Thịt heo G có thể dùng điện thoại quét mã QR trên tem sản phẩm để kiểm tra nguồn gốc.",
+  "category": "pork",
+  "image": "https://cdn.tgdd.vn/Products/Images/8781/241213/bhx/cot-let-heo-co-xuong-g-khay-300g-4-6-mieng-202203260859306872.jpg",
+  "primaryPrice": 38500,
+  "oldPrice": 50000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104923"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104923"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc342a"
+  },
+  "name": "Cá lóc nguyên con làm sạch (300g - 450g/con)",
+  "description": "Cá lóc hay còn được gọi là cá quả, là một nguyên liệu quen thuộc thường xuất hiện trên bàn ăn của mỗi gia đình. Cá lóc có thịt ngọt, rất ngon, thích hợp làm nhiều món ăn hấp dẫn như bánh canh cá lóc, canh chua cá lóc, cá lóc kho tộ,... đảm bảo sẽ khiến cả nhà mê tít",
+  "category": "fish",
+  "image": "https://cdn.tgdd.vn/Products/Images/8782/268674/bhx/ca-loc-nguyen-con-lam-sach-300g-450g-con-202205260936069697.jpg",
+  "primaryPrice": 39000,
+  "oldPrice": 50000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc342b"
+  },
+  "name": "Cá thu cắt khúc khay 300g (giao khúc giữa)",
+  "description": "Là một loại cá biển thơm ngon với thịt thơm và đầy bổ dưỡng. Cá thu giàu chất béo, chất đạm, giàu vitamin và khoáng chất cần thiết cho cơ thể. Cá thu được dùng nấu nhiều món ăn ngon như cá thu kho thơm, cá thu kho tiêu, cá thu kho nước dừa hấp dẫn. Cá thu Bách hoá XANH tươi ngon, nhập mới mỗi ngày.",
+  "category": "fish",
+  "image": "https://cdn.tgdd.vn/Products/Images/8782/274403/bhx/ca-thu-cat-khuc-khay-300g-giao-khuc-giua-202209150928185444.jpg",
+  "primaryPrice": 94800,
+  "oldPrice": 115000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc342c"
+  },
+  "name": "Hộp 30 trứng cút tươi 4KFarm",
+  "description": "Hộp 30 trứng cút tươi 4KFarm từ thương hiệu trứng 4KFarm được đóng gói và bảo quản theo những tiêu chuẩn nghiêm ngặt về vệ sinh và an toàn thực phẩm, đảm bảo về chất lượng của thực phẩm. Trứng cút tròn, đều.Trứng cút thì bạn có thể luộc chín chế biến thành một số món ăn như: trứng cút hun khói,...",
+  "category": "egg",
+  "image": "https://cdn.tgdd.vn/Products/Images/8783/219097/bhx/hop-30-trung-cut-tuoi-vfarm-202211050921430956.jpg",
+  "primaryPrice": 27000,
+  "oldPrice": 27000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc342d"
+  },
+  "name": "Hộp 30 trứng gà Happy Egg",
+  "description": "Hộp 30 trứng gà Happy Egg là một trong những thực phẩm dinh dưỡng quen thuộc, được sử dụng nhiều trong đời sống hằng ngày, dễ chế biến, chứa nhiều dưỡng chất. Trứng gà Happy Egg là thương hiệu trứng quen thuộc, uy tín và chất lượng",
+  "category": "egg",
+  "image": "https://cdn.tgdd.vn/Products/Images/8783/299272/bhx/hop-30-trung-ga-happy-egg-202212200905112326.jpg",
+  "primaryPrice": 89000,
+  "oldPrice": 90000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc342e"
+  },
+  "name": "Tôm càng xanh khay 500g (10 - 15 con)",
+  "description": "Tôm là nguồn dinh dưỡng dồi dào, cung cấp hàm lượng canxi và sắt rất cao cho chế độ ăn hằng ngày. Khi thưởng thức, bạn sẽ cảm nhận phần thịt ngọt nước và hơi dai. Ngoài ra, tôm càng với kích thước to nên thường được dùng để trang trí các món ăn trong bữa tiệc hoặc bữa cơm gia đình.",
+  "category": "sea food",
+  "image": "https://cdn.tgdd.vn/Products/Images/8782/249433/bhx/tom-cang-khay-500g-5-10-con-202207221127390424.jpg",
+  "primaryPrice": 89000,
+  "oldPrice": 135000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104924"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc342f"
+  },
+  "name": "Tôm sú nguyên con khay 500g (10 - 13 con)",
+  "description": "Tôm sú là loại thực phẩm quen thuộc, có thể chế biến thành nhiều món ăn ngon như luộc, hấp, nướng, các món lẩu,.... Thịt tôm sú dai dai, có vị ngọt rất hấp dẫn. Tôm sú tại Bách hoá XANH rất tươi ngon và được nhiều bà nội trợ chọn mua.",
+  "category": "sea food",
+  "image": "https://cdn.tgdd.vn/Products/Images/8782/285416/bhx/tom-su-nguyen-con-khay-500g-12-15-con-202208040850312165.jpg",
+  "primaryPrice": 129000,
+  "oldPrice": 150000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3430"
+  },
+  "name": "Rau răm gói 100g",
+  "description": "Rau răm là một loại rau có vị cay, tính ấm và mùi thơm đặc trưng, thường ăn kèm với các món có tính hàn, giúp bụng của bạn tốt hơn. Rau răm thường dùng ăn kèm với hột vịt lộn, làm món đậu hũ kèm rau răm hay làm tăng gia vị cho các món kho, món gỏi,..",
+  "category": "vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8820/271503/bhx/rau-ram-goi-100g-202205190838444360.jpg",
+  "primaryPrice": 5500,
+  "oldPrice": 5500,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3431"
+  },
+  "name": "Xà lách lô lô xanh gói 500g",
+  "description": "Rau xà lách lô lô xanh của Bách hóa Xanh được trồng tại Lâm Đồng và đóng gói theo những tiêu chuẩn nghiêm ngặt, bảo đảm các tiêu chuẩn xanh - sach. Xà lách lô lô nhiều chất xơ, hàm lượng dinh dưỡng cao, vị ngọt, giòn nên thường dùng làm rau ăn kèm cho các món cuốn",
+  "category": "vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8820/271485/bhx/xa-lach-lo-lo-xanh-goi-500g-202205181607134610.jpg",
+  "primaryPrice": 19000,
+  "oldPrice": 21000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "3",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3432"
+  },
+  "name": "Dưa leo khay 500g (3 -5 trái)",
+  "description": "Dưa leo trái lớn tươi ngon, được trồng và thu hoạch đảm bảo chất lượng, an toàn cho sức khỏe người sử dụng. Trong dưa leo chứa nhiều chất xơ, vitamin C, E, K, magie,...dễ ăn, dễ phối trộn với các món ăn khác, tốt sức khỏe vừa mang lại hiệu quả làm đẹp rất tốt",
+  "category": "root vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8785/271512/bhx/dua-leo-vi-500g-3-5-trai-202205201600227798.jpg",
+  "primaryPrice": 12000,
+  "oldPrice": 11000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104925"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3433"
+  },
+  "name": "Cà chua túi 1kg (10 - 12 trái)",
+  "description": "Cà chua được trồng ở Lâm Đồng là loại rau củ rất tốt cho sức khoẻ của người sử dụng, loại rau củ này không những giúp bổ sung chất dinh dưỡng cần thiết cho cơ thể mà chúng có giúp làm đẹp da cho phái nữ. Cà chua có thể ăn sống hoặc chế biến các món ăn cũng rất ngon.",
+  "category": "root vegetable",
+  "image": "https://cdn.tgdd.vn/Products/Images/8785/271472/bhx/ca-chua-tui-1kg-10-12-trai-202205201608239644.jpg",
+  "primaryPrice": 30000,
+  "oldPrice": 35000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104926"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104926"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3434"
+  },
+  "name": "Táo Ninh Thuận hộp 1kg (25 - 30 trái)",
+  "description": "Táo xanh Ninh Thuận là trái cây đặc sản của vùng đất Phan Rang Ninh Thuận. Táo xanh hay táo ta, táo gai, tên khoa học Ziziphus mauritiana, là cây ăn quả nhiệt đới có nguồn gốc châu Phi. Khi ăn rửa sạch và ăn luôn vỏ, có vị ngọt thanh, giòn tan trong miệng. Quả ngon hơn khi chấm cùng muối ớt/muối tôm",
+  "category": "fruit",
+  "image": "https://cdn.tgdd.vn/Products/Images/8788/270218/bhx/tao-ninh-thuan-tui-1kg-25-30-trai-202211040906562481.jpg",
+  "primaryPrice": 30000,
+  "oldPrice": 39000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104926"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104926"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a32c582d86df8eb8dc3435"
+  },
+  "name": "Dưa hấu không hạt trái từ 2.8kg trở lên",
+  "description": "Dưa hấu không hạt là trái cây nhiều nước và các vitamin, khoáng chất cần thiết, đặc biệt là ít calo và chất béo. Dưa hấu được xem là một sản phẩm thay thế cho nước uống thông thường. Dưa ngọt khi trái tròn đều, cuống héo, xanh đậm có đầu vàng.",
+  "category": "fruit",
+  "image": "https://cdn.tgdd.vn/Products/Images/8788/272179/bhx/dua-hau-khong-hat-trai-tu-28kg-tro-len-202212071510232043.jpg",
+  "primaryPrice": 50000,
+  "oldPrice": 58000,
+  "origin": "Việt Nam",
+  "brand": "BachHoa.com",
+  "weight": "1",
+  "exp": "01/01/2023",
+  "stock": 10,
+  "isDeleted": false,
+  "commentsId": null,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638104927"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638104927"
+    }
+  }
+}]

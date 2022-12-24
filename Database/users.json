@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "638f7a5d228deb0a70c259cf"
+  },
+  "name": "admin03",
+  "gender": "male",
+  "password": "$2b$08$8t80.B/0MDGnfzrAsl6oNesM5ufq7gJRtEP8k/T4BMN7M27HUrWoa",
+  "phone": "+84123456789",
+  "isAdmin": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670347357137"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671254448284"
+    }
+  },
+  "image": "https://firebasestorage.googleapis.com/v0/b/shop-app-auth-cc9eb.appspot.com/o/userImages%2F0a89ee35-656d-4d33-beef-60c22e6741d4?alt=media&token=50412d3a-ff81-413c-9533-84989d9db818",
+  "isDeleted": true
+},{
+  "_id": {
+    "$oid": "638f7a5d228deb0a70c259d0"
+  },
+  "name": "user01",
+  "gender": "male",
+  "password": "$2b$08$CO5jG9gIKqW4zCaleJiTqOezlfWMGRTnB0Jx4O6tbHOn95GxHgk2e",
+  "phone": "+84123456788",
+  "isAdmin": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670347357138"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670347357138"
+    }
+  },
+  "isDeleted": true
+},{
+  "_id": {
+    "$oid": "638f7a5d228deb0a70c259d1"
+  },
+  "name": "user02",
+  "gender": "female",
+  "password": "$2b$08$swn3WfJU5FpsVoXjAmPQSeDsEclM2Kau.ylCL44LTZgtqfYJrNMJm",
+  "phone": "+84123456787",
+  "isAdmin": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670347357139"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670650102586"
+    }
+  },
+  "isDeleted": true
+},{
+  "_id": {
+    "$oid": "6390ac27bc2b6b85a9324755"
+  },
+  "name": "phuc phan",
+  "gender": "male",
+  "password": "U2FsdGVkX1+kgTc02l8Re63lvKf32SjzhgZYqfIOlIw=",
+  "phone": "0942266661",
+  "isAdmin": true,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667833639266"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670425639266"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63941811469df11c614bd1e7"
+  },
+  "name": "tu loz",
+  "gender": "female",
+  "password": "U2FsdGVkX18W3RTWrn+dwn7ykQO9JX8iNrX6+u8nEV4=",
+  "phone": "0327644657",
+  "isAdmin": false,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668057873507"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670667549177"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63941fca640b450041702e28"
+  },
+  "name": "Quan",
+  "gender": "male",
+  "password": "U2FsdGVkX19AyL6UK/6/YzU6zbUR8Vhb17yGpJgHoEA=",
+  "phone": "0327644652",
+  "isAdmin": true,
+  "isDeleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665381450902"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671680532355"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a3ce9cb1f53f9011a0859b"
+  },
+  "name": "Hoàng Quân 01",
+  "gender": "female",
+  "password": "$2b$08$b7PJ/DtID3/Mznr2/7f2tuh.n2iilg0eKxA7adgwQkYyFlVpi/ak6",
+  "phone": "+84377188568",
+  "isAdmin": false,
+  "isDelete": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671679644210"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671680390942"
+    }
+  },
+  "__v": 0,
+  "image": "https://firebasestorage.googleapis.com/v0/b/shop-app-auth-cc9eb.appspot.com/o/userImages%2Ff9a6533f-ef4a-446e-8831-a4c9a6152f03?alt=media&token=d869f15a-7cdc-4b00-95fe-3050ca6962a6"
+}]
