@@ -138,7 +138,7 @@ export default function OrderDetail() {
                             >
                                 <span className={style.title}>Trạng thái:</span>
                                 <span className={style.content}>
-                                    Đang vận chuyển
+                                    Đang vận chuyển (Giao hàng trong ngày)
                                 </span>
                             </div>
                         )}

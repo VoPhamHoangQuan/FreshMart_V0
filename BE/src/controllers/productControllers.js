@@ -72,11 +72,8 @@ export const getProductListBySearchName = async (req, res) => {
             $and: [
                 {
                     $or: [
-                        { name: { $regex: searchString } },
-                        { category: { $regex: searchString } },
-                        { description: { $regex: searchString } },
-                        { origin: { $regex: searchString } },
-                        { brand: { $regex: searchString } },
+                        { name: { $regex: searchString, $options: "i" } },
+                        { category: { $regex: searchString, $options: "i" } },
                     ],
                 },
                 {

@@ -13,6 +13,7 @@ import Error from "~/components/popupComponents/Error";
 import Product from "~/components/productComponents/Product";
 import Carousel from "~/components/CarouselComponent";
 import AutoPopUpNotify from "~/components/popupComponents/AutoPopUpNotify";
+import EmptyNotify from "~/components/popupComponents/EmptyNotify";
 
 function HomeUser() {
     const dispatch = useDispatch();
@@ -268,7 +269,7 @@ function HomeUser() {
                     </div>
                     {/* end Vegetable Product Section */}
                 </>
-            ) : (
+            ) : productListBySearch.length > 0 ? (
                 <div className={clsx("row ", "mt-1")}>
                     <div className={style.homeUser_productSection}>
                         <div className={clsx(style.productSection_Container)}>
@@ -306,6 +307,26 @@ function HomeUser() {
                                 Xem thêm
                                 <i className="fa-solid fa-sort-down"></i>
                             </span>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <div className={clsx("row ", "mt-1")}>
+                    <div className={style.homeUser_productSection}>
+                        <div className={clsx(style.productSection_Container)}>
+                            {/* title */}
+                            <div
+                                className={style.productSection_titleContainer}
+                            >
+                                <div className={style.title}>
+                                    <span>SẢN PHẨM TÌM ĐƯỢC</span>
+                                </div>
+                            </div>
+                            {/* end title */}
+
+                            {/* product show case */}
+                            <EmptyNotify message="Không có sản phẩm nào phù hợp với tìm kiếm"></EmptyNotify>
+                            {/*end product show case */}
                         </div>
                     </div>
                 </div>
