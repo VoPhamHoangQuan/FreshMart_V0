@@ -11,6 +11,7 @@ import ShippingConfirm from "../pages/user/ShippingConfirm";
 import OrderInfo from "../pages/user/OrderInfo";
 import UserOrderList from "../pages/user/UserOrderList";
 import UserProfile from "../pages/user/UserProfile";
+import ChangePassword from "../pages/user/ChangePassword";
 
 export const PublicRoutes = [
     { path: "/", component: HomeUser },
@@ -60,6 +61,11 @@ export const PrivateRoutes = [
     {
         path: "/user/userProfile",
         component: UserProfile,
+        layout: ProfileLayout,
+    },
+    {
+        path: "/user/changePassword",
+        component: ChangePassword,
         layout: ProfileLayout,
     },
 ];

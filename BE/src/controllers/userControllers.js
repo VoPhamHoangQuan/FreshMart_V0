@@ -92,3 +92,40 @@ export const updateUser = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
+export const comparePassword = async (req, res) => {
+    try {
+        const existedUser = await UserModel.findOne({
+            phone: req.body.phone,
+            isDeleted: false,
+        });
+        if (existedUser) {
+            if (compareSync(req.body.password, existedUser.password)) {
+                res.status(200).json({ message: "Password correct" });
+            } else {
+                res.status(201).json({ message: "Password incorrect" });
+            }
+        } else {
+            res.status(201).json({ error: "user not exist" });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+export const updatePassUser = async (req, res) => {
+    try {
+        const userId = req.userInfo.id;
+        const password = hashSync(req.body.password, 8);
+        await UserModel.findOneAndUpdate(
+            { _id: userId },
+            {
+                password,
+            }
+        );
+
+        res.status(200).json({ message: "Update password success" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
