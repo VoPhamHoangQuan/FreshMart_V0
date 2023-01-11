@@ -49,6 +49,7 @@ function Header() {
         setCartActive(false);
         dispatch(signinSlice.actions.signOut());
         history("/", { replace: false });
+        window.location.reload(false);
     }
 
     function handleUserOrderClick() {
@@ -160,11 +161,11 @@ function Header() {
                                     </div>
                                 </li>
                             ) : (
-                                <a href="/signin">
+                                <Link to="/signin">
                                     <li className={clsx(style.Header_action)}>
                                         <i className="far fa-user"></i>
                                     </li>
-                                </a>
+                                </Link>
                             )}
                             <div
                                 onMouseOver={handleMouseOver}

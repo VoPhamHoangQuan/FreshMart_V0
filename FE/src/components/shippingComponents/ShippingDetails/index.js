@@ -204,16 +204,16 @@ export default function ShippingDetails() {
                             </div>
                             <div className={style.input_container}>
                                 <span>
-                                    Số điện thoại giao hàng (mặc định sử dụng số
-                                    điện thoại tài khoản nếu để trống mục này)
+                                    Số điện thoại giao hàng{" "}
+                                    <i style={{ color: "red" }}>*</i>
                                 </span>
                                 <input
                                     ref={phoneNumberInput}
                                     type="tel"
                                     maxLength={10}
-                                    placeholder={reverseFormatPhoneNumber(
-                                        userInfo.phone
-                                    )}
+                                    // placeholder={reverseFormatPhoneNumber(
+                                    //     userInfo.phone
+                                    // )}
                                     value={shippingPhone}
                                     onChange={(e) => handlePhoneNumberChange(e)}
                                     onKeyPress={(e) =>

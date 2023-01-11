@@ -162,10 +162,10 @@ function PhoneSignin() {
                         >
                             Xác nhận
                         </button>
-                        <a className={style.return_link} href="/signin">
+                        {/* <a className={style.return_link} href="/signin">
                             <i className="fa-solid fa-arrow-left" />
                             Quay lại trang đăng nhập
-                        </a>
+                        </a> */}
                     </form>
                 </div>
             </div>

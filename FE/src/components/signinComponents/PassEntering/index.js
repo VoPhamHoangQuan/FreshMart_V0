@@ -104,10 +104,10 @@ function PassEntering() {
                     >
                         Tiếp tục
                     </button>
-                    <Link className={style.return_link} to="/signin">
+                    {/* <Link className={style.return_link} to="/signin">
                         <i className="fa-solid fa-arrow-left" />
                         Quay lại trang đăng nhập
-                    </Link>
+                    </Link> */}
                     <div id="catchaVerifier"></div>
                 </form>
             </div>
