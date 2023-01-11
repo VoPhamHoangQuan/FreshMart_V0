@@ -16,9 +16,12 @@ const fetchUserOrderList = createAsyncThunk(
                 const header = {
                     authorization: `Bearer ${payload.token}`,
                 };
-                const { data } = await axios.get("/orders/userOrderList", {
-                    headers: header,
-                });
+                const { data } = await axios.get(
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/orders/userOrderList`,
+                    {
+                        headers: header,
+                    }
+                );
                 return data;
             } else {
                 return rejectWithValue({ error: "inavlid token" });
@@ -37,9 +40,12 @@ const fetchUserOrderListPaid = createAsyncThunk(
                 const header = {
                     authorization: `Bearer ${payload.token}`,
                 };
-                const { data } = await axios.get("/orders/userOrderListPaid", {
-                    headers: header,
-                });
+                const { data } = await axios.get(
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/orders/userOrderListPaid`,
+                    {
+                        headers: header,
+                    }
+                );
                 return data;
             } else {
                 return rejectWithValue({ error: "inavlid token" });
@@ -59,7 +65,7 @@ const fetchUserOrderListNotPay = createAsyncThunk(
                     authorization: `Bearer ${payload.token}`,
                 };
                 const { data } = await axios.get(
-                    "/orders/userOrderListNotPay",
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/orders/userOrderListNotPay`,
                     {
                         headers: header,
                     }
@@ -83,7 +89,7 @@ const fetchUserOrderListNotDelivery = createAsyncThunk(
                     authorization: `Bearer ${payload.token}`,
                 };
                 const { data } = await axios.get(
-                    "/orders/userOrderListNotDelivery",
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/orders/userOrderListNotDelivery`,
                     {
                         headers: header,
                     }
@@ -107,7 +113,7 @@ const fetchUserOrderListDelivered = createAsyncThunk(
                     authorization: `Bearer ${payload.token}`,
                 };
                 const { data } = await axios.get(
-                    "/orders/userOrderListDelivered",
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/orders/userOrderListDelivered`,
                     {
                         headers: header,
                     }
@@ -127,7 +133,7 @@ const fetchUserOrderCancel = createAsyncThunk(
     async (payload, { rejectWithValue }) => {
         try {
             const { data } = await axios.post(
-                `/orders/orderCancel/${payload.orderId}`,
+                `${process.env.REACT_APP_BACKEND_LOCATE}/orders/orderCancel/${payload.orderId}`,
                 {
                     isDeleted: payload.isDeleted,
                 }
@@ -148,7 +154,7 @@ const fetchUserOrderListCanceled = createAsyncThunk(
                     authorization: `Bearer ${payload.token}`,
                 };
                 const { data } = await axios.get(
-                    "/orders/userIsDeletedOrderList",
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/orders/userIsDeletedOrderList`,
                     {
                         headers: header,
                     }

@@ -15,7 +15,7 @@ const fetchUpdateUser = createAsyncThunk(
                 authorization: `Bearer ${payload.token}`,
             };
             const { data } = await axios.post(
-                "/users/updateUser",
+                `${process.env.REACT_APP_BACKEND_LOCATE}/users/updateUser`,
                 {
                     name: payload.name,
                     gender: payload.gender,

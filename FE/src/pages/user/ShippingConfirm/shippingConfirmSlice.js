@@ -22,9 +22,13 @@ const fetchCreateOrder = createAsyncThunk(
                 paymentMethod: payload.paymentMethod,
             };
 
-            const { data } = await axios.post("/orders/", body, {
-                headers: header,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/orders/`,
+                body,
+                {
+                    headers: header,
+                }
+            );
 
             localStorage.setItem("cartItems", JSON.stringify([]));
 
@@ -44,7 +48,10 @@ const fetchUpdateProductStock = createAsyncThunk(
                     productId: el.productId,
                     updatedStock: el.stock - el.qty,
                 };
-                await axios.post("/products/adjustProducIntStock", body);
+                await axios.post(
+                    `${process.env.REACT_APP_BACKEND_LOCATE}/products/adjustProducIntStock`,
+                    body
+                );
             });
             return "update product stock success";
         } catch (err) {

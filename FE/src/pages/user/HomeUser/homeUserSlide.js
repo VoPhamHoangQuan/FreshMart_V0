@@ -16,7 +16,9 @@ const fetchProductList = createAsyncThunk(
 
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get("/products");
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/products`
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -28,7 +30,9 @@ const fetchProductListBySearch = createAsyncThunk(
     "homeUser/fetchProductListBySearch",
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get(`/products/search/${payload.key}`);
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/products/search/${payload.key}`
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);

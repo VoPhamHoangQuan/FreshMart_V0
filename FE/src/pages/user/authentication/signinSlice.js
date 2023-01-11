@@ -15,9 +15,12 @@ const fetchExistedPhone = createAsyncThunk(
     "signin/existedPhone",
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post("/users/existedPhone", {
-                phone: payload,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/users/existedPhone`,
+                {
+                    phone: payload,
+                }
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -29,10 +32,13 @@ const fetchSigninUser = createAsyncThunk(
     "signin/signinUser",
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post("/users/signin", {
-                phone: payload.phone,
-                password: payload.password,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/users/signin`,
+                {
+                    phone: payload.phone,
+                    password: payload.password,
+                }
+            );
             if (!data.error) {
                 localStorage.setItem("userInfo", JSON.stringify(data));
             }
@@ -48,13 +54,16 @@ const fetchCreateUser = createAsyncThunk(
     "signin/createUser",
     async (payload, { rejectWithValue }) => {
         try {
-            const { newUser } = await axios.post("/users/createUser", {
-                name: payload.name,
-                gender: payload.gender,
-                password: payload.password,
-                phone: payload.phone,
-                isAdmin: false,
-            });
+            const { newUser } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/users/createUser`,
+                {
+                    name: payload.name,
+                    gender: payload.gender,
+                    password: payload.password,
+                    phone: payload.phone,
+                    isAdmin: false,
+                }
+            );
             return newUser;
         } catch (err) {
             return rejectWithValue(err.message);

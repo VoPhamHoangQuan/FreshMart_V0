@@ -13,7 +13,9 @@ const fetchProductDetail = createAsyncThunk(
     "productDetail/getProductDetail",
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get(`/products/product/${payload}`);
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/products/product/${payload}`
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -24,9 +26,12 @@ const fetchCreateInitComment = createAsyncThunk(
     "productDetail/createInitComment",
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post("/comments/init", {
-                productId: payload.productId,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/comments/init`,
+                {
+                    productId: payload.productId,
+                }
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -44,9 +49,13 @@ const fetchAddComment = createAsyncThunk(
                 message: payload.message,
                 rate: payload.rate,
             };
-            const { data } = await axios.post("/comments/addComment", body, {
-                headers: header,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/comments/addComment`,
+                body,
+                {
+                    headers: header,
+                }
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);

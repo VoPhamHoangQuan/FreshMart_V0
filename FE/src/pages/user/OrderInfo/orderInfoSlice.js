@@ -14,7 +14,7 @@ const fetchOrderDetail = createAsyncThunk(
     async (payload, { rejectWithValue }) => {
         try {
             const { data } = await axios.get(
-                `/orders/order/${payload.orderId}`
+                `${process.env.REACT_APP_BACKEND_LOCATE}/orders/order/${payload.orderId}`
             );
             return data;
         } catch (err) {
@@ -45,10 +45,13 @@ const fetchModifyIsPaidOrder = createAsyncThunk(
             const orderId = payload.orderId;
             const isPaid = payload.isPaid;
             const paidAt = payload.paidAt;
-            const { data } = await axios.post(`/orders/order/${orderId}`, {
-                isPaid,
-                paidAt,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/orders/order/${orderId}`,
+                {
+                    isPaid,
+                    paidAt,
+                }
+            );
             return data;
         } catch (err) {
             return rejectWithValue({ error: err.message });

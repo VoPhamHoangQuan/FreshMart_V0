@@ -14,7 +14,7 @@ const addToCart = createAsyncThunk(
     async (payload, { rejectWithValue }) => {
         try {
             const { data } = await axios.get(
-                `/products/product/${payload.productId}`
+                `${process.env.REACT_APP_BACKEND_LOCATE}/products/product/${payload.productId}`
             );
             return {
                 productId: data._id,

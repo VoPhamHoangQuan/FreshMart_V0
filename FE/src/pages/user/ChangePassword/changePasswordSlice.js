@@ -12,10 +12,13 @@ const fetchComparePassword = createAsyncThunk(
     "changePassword/comparePassword",
     async (payload, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post("/users/comparePassword", {
-                phone: payload.phone,
-                password: payload.password,
-            });
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_LOCATE}/users/comparePassword`,
+                {
+                    phone: payload.phone,
+                    password: payload.password,
+                }
+            );
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -31,7 +34,7 @@ const fetchUpdatePassUser = createAsyncThunk(
                 authorization: `Bearer ${payload.token}`,
             };
             const { data } = await axios.post(
-                "./users/updatePassUser",
+                `${process.env.REACT_APP_BACKEND_LOCATE}/users/updatePassUser`,
                 {
                     password: payload.password,
                 },
